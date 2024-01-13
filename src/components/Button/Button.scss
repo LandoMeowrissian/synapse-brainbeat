@@ -1,0 +1,52 @@
+@import "../../styles/mixins.scss";
+
+
+.button-row-1,
+.button-row-2,
+.button-row-3,
+.button-row-4,
+.button-row-5 {
+  @include button;
+ 
+}
+
+.button-row-1:active{
+  background: linear-gradient(to bottom right, #05FFCF, #323232); 
+  box-shadow:
+  4px 4px 8px #05FFCF,  
+  -2px -2px 5px #05FFCF, 
+  0px 4px 5px rgba(0,0,0,0.2); 
+}
+
+.button-row-2:active {
+  background: linear-gradient(to bottom right, #5DD478, #323232);
+  box-shadow: 
+  4px 4px 8px , #5DD478,
+  -2px -2px 5px #5DD478,
+  0px 4px 5px rgba(0,0,0,0.2); 
+}
+
+.button-row-3:active{
+  background: linear-gradient(to bottom right, #ff57ab, #323232);
+  box-shadow: 
+  4px 4px 8px #ff57ab, 
+  -2px -2px 5px #ff57ab,
+  0px 4px 5px rgba(0,0,0,0.2); 
+}
+
+.button-row-4:active{
+  background: linear-gradient(to bottom right, #ff00ff, #323232);
+  box-shadow: 
+  4px 4px 8px #ff00ff, 
+  -2px -2px 5px #ff00ff,
+  0px 4px 5px rgba(0,0,0,0.2); 
+}
+
+
+.button-row-5:active{
+  background: linear-gradient(to bottom right, #ea4d71, #323232);
+  box-shadow: 
+  4px 4px 8px , #ea4d71,
+  -2px -2px 5px #ea4d71,
+  0px 4px 5px rgba(0,0,0,0.2); 
+}

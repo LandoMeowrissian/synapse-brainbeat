@@ -1,0 +1,16 @@
+.header__container{
+  display:flex;
+  flex-direction: column;
+}
+
+
+
+.header {
+  padding-top: 2rem;
+  height: 10rem;
+
+  background-image: url("../../assets/images/brainbeat-logo.png");
+  background-size:auto;
+  background-position:center;
+ 
+}

@@ -1,0 +1,17 @@
+@mixin button {
+  background: linear-gradient(to bottom right, #484848, #1c1c1c); 
+  color: white;
+  border: none;
+  border-radius: 20%; 
+  padding: 2.5rem 2.5rem;
+  cursor: pointer;
+  outline: none;
+  margin: 5px;
+  position: relative;
+  box-shadow: 
+  2px 2px 5px #ffffff, 
+  -2px -2px 5px #ffffff,
+  0px 4px 5px rgba(0,0,0,0.2); 
+  transition: all 0.3s ease;
+  
+}
