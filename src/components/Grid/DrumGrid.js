@@ -6,7 +6,7 @@ import "./Grid.scss";
 
 const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5", "Row6"]; 
 
-const Grid = () => {
+const DrumGrid = () => {
   // Only rows are used since the number of cols is now fixed to 16
   const createGrid = (rows) => {
     const soundMapping = {
@@ -66,4 +66,4 @@ const Grid = () => {
   );
 };
 
-export default Grid;
+export default DrumGrid;

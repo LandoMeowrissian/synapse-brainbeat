@@ -1,12 +1,13 @@
 import "./App.scss";
 // import * as Tone from "tone";
 import Header from "./components/Header/Header";
-import Grid from "./components/Grid/Grid";
+import DrumGrid from "./components/Grid/DrumGrid";
 function App() {
   return (
     <div className="App">
       <Header />
-      <Grid/>
+      <DrumGrid />
+      <DrumGrid />
     </div>
   );
 }
