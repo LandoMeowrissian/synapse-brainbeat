@@ -1,0 +1,23 @@
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+  background-color: grey;
+
+}
+
+.App {
+  
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-image: url("./assets/images/stars.png");
+  border: 1mm ridge silver;
+  border-radius: 5%;
+}
