@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import Drums from "./Drums";
 import * as Tone from "tone";
-import "./Grid.scss";
+import "../../styles/Grid.scss";
 
 const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5", "Row6"]; 
 

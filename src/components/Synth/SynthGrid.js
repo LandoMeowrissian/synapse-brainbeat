@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import PentatonicSynths from "./Synth";
 import * as Tone from "tone";
-import "../Drums/Grid.scss";
+import "../../styles/Grid.scss";
 
 const SynthGrid = () => {
   const padKeys = ["C", "D", "E", "G", "A", "C"];
