@@ -4,32 +4,23 @@ import Drums from "../Instruments/MembraneSynth";
 import * as Tone from "tone";
 import "./Grid.scss";
 
-const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5"]; // the 5 different pad types
+const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5", "Row6"]; 
 
 const Grid = () => {
-  const createGrid = (rows, cols) => {
+  // Only rows are used since the number of cols is now fixed to 16
+  const createGrid = (rows) => {
     const soundMapping = {
       Row1: Drums.kick,
       Row2: Drums.snare,
       Row3: Drums.hiHat,
       Row4: Drums.tom1,
       Row5: Drums.tom2,
+      Row6: Drums.tom3,
     };
 
-    const allPadKeys =
-      rows > padKeys.length
-        ? [
-            ...Array(Math.ceil(rows / padKeys.length))
-              .fill(padKeys)
-              .flat()
-              .slice(0, rows),
-          ]
-        : padKeys;
-
-    return allPadKeys.map((padKey, rowIndex) =>
-      new Array(cols).fill(null).map((_, colIndex) => {
+    return padKeys.map((padKey, rowIndex) =>
+      new Array(8).fill(null).map((_, colIndex) => { // Fixed number of columns to 16
         const handleClick = async () => {
-          // Only call Tone.start() if the context is not running
           if (Tone.context.state !== 'running') {
             await Tone.start();
             console.log('Playback resumed successfully');
@@ -54,38 +45,10 @@ const Grid = () => {
     );
   };
 
-  // Function to determine number of rows based on innerWidth
-  const getRowsBasedOnWidth = (width) => {
-    return width >= 750 && width <= 890 ? 10 : 5;
-  };
+  // Initialize state with a fixed number of rows and 16 columns
+  const [grid, setGrid] = useState(createGrid(padKeys.length));
 
-  // Function to determine number of columns based on innerWidth
-  const getColsBasedOnWidth = (width) => {
-    return width >= 750 && width <= 890 ? 4 : 8;
-  };
-
-  // Initialize state with an appropriate grid based on window width
-  const [grid, setGrid] = useState(
-    createGrid(
-      getRowsBasedOnWidth(window.innerWidth),
-      getColsBasedOnWidth(window.innerWidth)
-    )
-  );
-
-  useEffect(() => {
-    // Handle resize to adjust rows and cols
-    const handleResize = () => {
-      const updatedRows = getRowsBasedOnWidth(window.innerWidth);
-      const updatedCols = getColsBasedOnWidth(window.innerWidth);
-      setGrid(createGrid(updatedRows, updatedCols));
-    };
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // Removed useEffect and resize handling as the number of columns is now static
 
   return (
     <div className="grid">

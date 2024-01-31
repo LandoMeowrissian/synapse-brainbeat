@@ -1,4 +1,4 @@
-import "./Button.scss"; // Assuming you have a separate SCSS file for the Button component
+import "./Button.scss"; 
 
 const Button = ({ onClick, className, padKey, children }) => {
   return (

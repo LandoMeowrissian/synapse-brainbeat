@@ -1,0 +1,26 @@
+.synth {
+  margin:100px;
+  display: flex;
+  justify-content: center;
+  &-start {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+  }
+}
+
+.scale-grid{
+  height: 2.125rem;
+  display: flex;
+  flex-direction:row;
+
+}
+
+button {
+  background: rgb(84, 84, 84);
+  box-shadow:black;
+  color:rgb(0, 251, 255);
+  margin-left: .25rem;
+  height: 1.75rem;
+  column-gap: .25rem;
+}
