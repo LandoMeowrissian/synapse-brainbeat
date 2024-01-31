@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
-import Drums from "../Instruments/Drums";
+import Drums from "./Drums";
 import * as Tone from "tone";
 import "./Grid.scss";
 
 const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5", "Row6"]; 
 
 const DrumGrid = () => {
-  // Only rows are used since the number of cols is now fixed to 16
   const createGrid = (rows) => {
     const soundMapping = {
       Row1: Drums.kick,
@@ -19,7 +18,7 @@ const DrumGrid = () => {
     };
 
     return padKeys.map((padKey, rowIndex) =>
-      new Array(8).fill(null).map((_, colIndex) => { // Fixed number of columns to 16
+      new Array(8).fill(null).map((_, colIndex) => { 
         const handleClick = async () => {
           if (Tone.context.state !== 'running') {
             await Tone.start();
@@ -45,10 +44,8 @@ const DrumGrid = () => {
     );
   };
 
-  // Initialize state with a fixed number of rows and 16 columns
   const [grid, setGrid] = useState(createGrid(padKeys.length));
 
-  // Removed useEffect and resize handling as the number of columns is now static
 
   return (
     <div className="grid">
