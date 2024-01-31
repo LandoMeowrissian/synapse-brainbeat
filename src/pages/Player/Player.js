@@ -5,7 +5,7 @@ import "./Player.scss";
 
 const Player = () => {
   return (
-    <player className="player">
+    <section className="player">
       <Header />
       <main className="player-main">
         <div className="player-notes">
@@ -38,7 +38,7 @@ const Player = () => {
           <DrumGrid />
         </div>
       </main>
-    </player>
+    </section>
   );
 };
 
