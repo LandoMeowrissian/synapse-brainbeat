@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
-import Drums from "../Instruments/MembraneSynth";
+import Drums from "../Instruments/Drums";
 import * as Tone from "tone";
 import "./Grid.scss";
 
