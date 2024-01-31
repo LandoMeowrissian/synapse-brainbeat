@@ -16,3 +16,13 @@
   gap: 10px; 
   
 }
+
+@mixin flex-col{
+  display: flex;
+  flex-direction:column;
+}
+
+@mixin list {
+  list-style: none;
+ 
+}
