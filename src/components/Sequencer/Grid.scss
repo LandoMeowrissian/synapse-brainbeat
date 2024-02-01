@@ -1,22 +1,23 @@
-.grid {
-  perspective: 800px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  perspective: 600px;
-  padding: 1rem;
-  border-radius: 5%;
-  border: 2px solid black;
-  border-top: 1mm ridge silver;
-  border-bottom: 1mm ridge silver;
-  border-right: 1mm ridge silver;
-  border-left: 1mm ridge silver;
-  // background-image: url("../assets/images/stars.png");
-
-  background-size: cover;
-  background-position: center;
-
+.sequencer {
+  &-grid {
+    perspective: 800px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    perspective: 600px;
+    padding: 1rem;
+    border-radius: 5%;
+    border: 2px solid black;
+    border-top: 1mm ridge silver;
+    border-bottom: 1mm ridge silver;
+    border-right: 1mm ridge silver;
+    border-left: 1mm ridge silver;
+    background-size: cover;
+    background-position: center;
+  background-image: url("../../assets/images/stars.png");
+  }
 }
+
 
 .row {
   display: flex;
