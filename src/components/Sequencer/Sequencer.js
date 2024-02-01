@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as Tone from 'tone';
 import "../../styles/Grid.scss";
+import "./Sequencer.scss";
+import Button from "../Button/Button";
 import classNames from 'classnames';
 
 const Sequencer = () => {
@@ -118,10 +120,10 @@ const Sequencer = () => {
       />
       <span>{bpm} BPM</span>
       {grid.map((row, rowIndex) => (
-        <div className="row" key={`row_${rowIndex}`}>
+        <div className={`sequencer-row sequencer-row-${rowIndex}`} key={`row_${rowIndex}`}>
           {row.map((note, noteIndex) => (
             <button
-              className={classNames('note', { 'note-is-active': note.isActive })}
+              className={`note sequencer-step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}
               key={`note_${rowIndex}_${noteIndex}`}
               onClick={() => handleNoteClick(rowIndex, noteIndex)}
             />
