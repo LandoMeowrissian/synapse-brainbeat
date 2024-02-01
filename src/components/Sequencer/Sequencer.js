@@ -41,6 +41,7 @@ const Sequencer = () => {
   const [synths, setSynths] = useState(makeSynths(6, synthType));
 
   useEffect(() => {
+    let beat = 0;
     const repeat = (time) => {
       grid.forEach((row, index) => {
         let synth = synths[index];
@@ -65,7 +66,7 @@ const Sequencer = () => {
   }, [started, bpm, grid, synths]);
 
   function makeGrid(notes) {
-    return notes.map(note => new Array(16).fill({ note: note, isActive: false }));
+    return notes.map(note => new Array(16).fill().map(()=>({ note: note, isActive: false })));
   }
 
   const handleNoteClick = (rowIndex, noteIndex) => {
