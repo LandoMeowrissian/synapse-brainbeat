@@ -1,15 +1,14 @@
 import "./App.scss";
 // import HomePage from "./pages/HomePage/HomePage";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Player from "./pages/Player/Player";
-import Sequencer from "./components/Sequencer/Sequencer";
+import LeadSequencer from "./components/Sequencers/LeadSequencer";
 
 function App( ) {
  
 
   return (
     <>
-      <Sequencer/>
+      <LeadSequencer/>
     </>
     // <BrowserRouter>
     //   <Routes>

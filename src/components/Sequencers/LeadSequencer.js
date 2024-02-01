@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import * as Tone from 'tone';
-import "../../styles/Grid.scss";
-import "./Sequencer.scss";
+import "./Grid.scss";
 
-const Sequencer = () => {
+const LeadSequencer = () => {
   const [bpm, setBpm] = useState(120);
   const notes = ["F3", "Eb3", "C3", "Bb2", "Ab2", "F2"];
   const [grid, setGrid] = useState(makeGrid(notes));
@@ -104,4 +103,4 @@ const Sequencer = () => {
   );
 };
 
-export default Sequencer;
+export default LeadSequencer;
