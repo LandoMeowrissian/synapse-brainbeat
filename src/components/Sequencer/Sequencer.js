@@ -131,6 +131,7 @@ const Sequencer = () => {
                 className={`note sequencer-step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}
                 key={`note_${rowIndex}_${noteIndex}`}
                 onClick={() => handleNoteClick('synth', rowIndex, noteIndex)}
+                style={{ background: note.isActive ? 'blue' : 'grey' }}
               />
             ))}
           </div>

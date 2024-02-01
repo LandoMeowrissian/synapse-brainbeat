@@ -6,11 +6,32 @@ const createDrums = () => {
     octaves: 2,
     oscillator: { type: "sine" },
   }).toDestination();
-  const snare = new Tone.NoiseSynth({
-    envelope: { attack: 0.01, decay: 0.15 },
-    noise: { type: "white" },
-    debug: "true"
+  const snareBody = new Tone.MembraneSynth({
+    pitchDecay: 0.005,
+    octaves: 4,
+    envelope: { attack: 0.001, decay: 0.2, sustain: 0 },
   }).toDestination();
+  // The noise component of the snare
+  const snareNoise = new Tone.NoiseSynth({
+    noise: { type: "white" },
+    envelope: { attack: 0.001, decay: 0.1, sustain: 0 },
+  }).toDestination();
+  // Use a filter to shape the noise
+  const snareFilter = new Tone.Filter({
+    type: "bandpass",
+    frequency: 1000,
+    Q: 0.5
+  });
+  // Connect the noise through the filter
+  snareNoise.connect(snareFilter);
+  snareFilter.toDestination();
+  // Combine the noise and body to create the snare sound
+  const snare = {
+    triggerAttackRelease: (note, duration, time) => {
+      snareBody.triggerAttackRelease(note, duration, time);
+      snareNoise.triggerAttackRelease(duration, time);
+    }
+  };
   const hiHat = new Tone.MetalSynth({
     frequency: 500,
     envelope: { attack: 0.01, decay: 0.05 },
