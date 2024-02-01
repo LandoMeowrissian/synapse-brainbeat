@@ -1,9 +1,11 @@
+import Header from "../../components/Header/Header";
+import Login from "../../components/Login/Login";
 const HomePage = () => {
   return (
     <>
       <Header />
-      <Grid />
-      <Grid />
+      <Login/>
     </>
-  );
-};
+  )
+}
+export default HomePage;

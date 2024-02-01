@@ -4,9 +4,12 @@ import Drums from "./Drums";
 import * as Tone from "tone";
 import "../../styles/Grid.scss";
 
-const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5", "Row6"]; 
 
 const DrumGrid = () => {
+  const [isSequencePlaying, setIsSequencePlaying] = useState(false)
+  const [activeSteps, setActiveSteps] = useState(new Array(8).fill(false));
+
+  const padKeys = ["Row1", "Row2", "Row3", "Row4", "Row5", "Row6"]; 
   const createGrid = (rows) => {
     const soundMapping = {
       Row1: Drums.kick,
@@ -44,8 +47,19 @@ const DrumGrid = () => {
     );
   };
 
+  const handlePlaySequenceStep = (index, time) => {
+    padKeys.forEach((padKey, rowIndex) => {
+      if (activeSteps[index]) {
+        const drum = Drums[padKey];
+        if (drum instanceof Tone.NoiseSynth) {
+          drum.triggerAttackRelease("16n");
+        } else {
+          drum.triggerAttackRelease("C2", "8n");
+        }
+      }
+    })
+  }
   const [grid, setGrid] = useState(createGrid(padKeys.length));
-
 
   return (
     <div className="grid">

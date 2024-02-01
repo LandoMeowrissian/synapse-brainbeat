@@ -5,6 +5,10 @@ import * as Tone from "tone";
 import "../../styles/Grid.scss";
 
 const SynthGrid = () => {
+  const [isSequencePlaying, setIsSequencePlaying] = useState(false);
+  const [activeSteps, setActiveSteps] = useState(new Array(8).fill(false));
+
+
   const padKeys = ["C", "D", "E", "G", "A", "C"];
   const createGrid = () => {
     return padKeys.map((padKey, rowIndex) =>
@@ -31,7 +35,14 @@ const SynthGrid = () => {
     );
   };
   
-
+  const handlePlaySequenceStep = (index, time) => {
+    padKeys.forEach((padKey, rowIndex) => {
+      if (activeSteps[index]) {
+        const synth = PentatonicSynths[padKey];
+        synth.triggerAttackRelease(`${padKey}4`, "8n", time);
+    }
+  })
+}
   const [grid, setGrid] = useState(createGrid());
 
   return (
