@@ -3,6 +3,10 @@
 button {
   @include button;
 }
+
+// #sequencer {
+//   background-image: url("../../assets/images/black-metal-texture.png")
+// }
 .sequencer-row-0:active{
   background: linear-gradient(to bottom right, #05FFCF, #323232); 
   box-shadow:

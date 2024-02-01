@@ -1,83 +1,59 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import * as Tone from 'tone';
 import "../../styles/Grid.scss";
 import "./Sequencer.scss";
-import Button from "../Button/Button";
-import classNames from 'classnames';
 
 const Sequencer = () => {
-  const [synthType, setSynthType] = useState("MembraneSynth");
   const [bpm, setBpm] = useState(120);
   const notes = ["F3", "Eb3", "C3", "Bb2", "Ab2", "F2"];
   const [grid, setGrid] = useState(makeGrid(notes));
   const [playing, setPlaying] = useState(false);
   const [started, setStarted] = useState(false);
-  let beat = 0;
+  const [beat, setBeat] = useState(0);
+  const beatRef = useRef(beat); 
+  const synthRef = useRef(new Tone.Synth({
+    ocillator: { type: "sawtooth" },
+    envelope: { attack: 0.05 }
+  },).toDestination());
 
-  function makeSynths(count, synthType) {
-    const synths = [];
-    for (let i = 0; i < count; i++) {
-      let synth;
-      switch (synthType) {
-        case "MembraneSynth":
-          synth = new Tone.MembraneSynth();
-          break;
-        case "PluckSynth":
-          synth = new Tone.PluckSynth();
-          break;
-        case "MetalSynth":
-          synth = new Tone.MetalSynth();
-          break;
-        // Add other synths you want to support
-        default:
-          throw new Error(`Unrecognized synth type: ${synthType}`);
-      }
-      synth.toDestination();
-      synths.push(synth);
-    }
-    return synths;
-  }
-
-  const [synths, setSynths] = useState(makeSynths(6, synthType));
+  beatRef.current = beat; 
 
   useEffect(() => {
-    let beat = 0;
     const repeat = (time) => {
+      const currentBeat = beatRef.current;
       grid.forEach((row, index) => {
-        let synth = synths[index];
-        let note = row[beat];
+        let synth = synthRef.current;
+        let note = row[currentBeat];
         if (note.isActive) {
           synth.triggerAttackRelease(note.note, "8n", time);
         }
       });
-      beat = (beat + 1) % 16;
+      setBeat((prevBeat) => (prevBeat + 1) % 16);
     };
-
+    Tone.Transport.cancel();
     if (started) {
       Tone.Transport.bpm.value = bpm;
       Tone.Transport.scheduleRepeat(repeat, "8n");
+      Tone.Transport.start();
+    } else {
+      Tone.Transport.stop();
     }
-
     return () => {
       if (started) {
         Tone.Transport.cancel();
       }
     };
-  }, [started, bpm, grid, synths]);
+  }, [started, bpm, grid]);
 
   function makeGrid(notes) {
     return notes.map(note => new Array(16).fill().map(()=>({ note: note, isActive: false })));
   }
 
   const handleNoteClick = (rowIndex, noteIndex) => {
-    const newGrid = grid.slice(); // Copy the grid
+    const newGrid = grid.slice(); 
     newGrid[rowIndex][noteIndex].isActive = !newGrid[rowIndex][noteIndex].isActive;
     setGrid(newGrid);
   };
-
-  useEffect(() => {
-    setSynths(makeSynths(6, synthType));
-  }, [synthType]);
 
   const handleBpmChange = (newBpm) => {
     setBpm(newBpm);
@@ -100,17 +76,7 @@ const Sequencer = () => {
   };
 
   return (
-    <div id="sequencer">
-      <select
-        id="synthSelect"
-        value={synthType}
-        onChange={(e) => setSynthType(e.target.value)}
-      >
-        <option value="MembraneSynth">Membrane Synth</option>
-        <option value="PluckSynth">Pluck Synth</option>
-        <option value="MetalSynth">Metal Synth</option>
-        {/* Add other synth options here */}
-      </select>
+    <div class="sequencer">
       <input
         type="range"
         id="bpm"
@@ -121,7 +87,7 @@ const Sequencer = () => {
       />
       <span>{bpm} BPM</span>
       {grid.map((row, rowIndex) => (
-        <div className={`sequencer-row sequencer-row-${rowIndex}`} key={`row_${rowIndex}`}>
+        <div className={`button-row-${rowIndex + 1}`} key={`row_${rowIndex}`}>
           {row.map((note, noteIndex) => (
             <button
               className={`note sequencer-step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}

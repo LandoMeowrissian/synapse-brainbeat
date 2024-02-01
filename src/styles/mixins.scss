@@ -1,5 +1,8 @@
 @mixin button {
-  background: linear-gradient(to bottom right, #484848, #1c1c1c); 
+  // background: linear-gradient(to bottom right, #484848, #1c1c1c); 
+  background-image: url("../assets/images/black-metal-texture.png");
+  background-size:contain;
+  background-position: center;
   color: white;
   border: none;
   border-radius: 20%; 

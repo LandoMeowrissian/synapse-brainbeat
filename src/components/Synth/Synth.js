@@ -1,7 +1,7 @@
 import * as Tone from "tone";
 
 const createSynths = () => {
-  const notes = ["C", "D", "E", "G", "A"];
+  const notes = ["F3", "Eb3", "C3", "Bb2", "Ab2", "F2"];
   let synths = {};
 
   for (let i = 0; i < notes.length; i++) {
