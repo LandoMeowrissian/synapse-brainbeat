@@ -1,4 +1,4 @@
-
+import "./BPMSlider.scss";
 const BPMSlider = ({ bpm, onBpmChange }) => (
   <div className="bpm-slider">
     <input

@@ -1,31 +1,30 @@
-@mixin button {
-  // background: linear-gradient(to bottom right, #484848, #1c1c1c); 
+@mixin button($active: false) {
   background-image: url("../assets/images/black-metal-texture.png");
-  background-size:contain;
+  background-size: contain;
   background-position: center;
   color: white;
-  border: none;
+  border: 1mm ridge silver;
   border-radius: 20%; 
   padding: 1rem 1rem;
   cursor: pointer;
   outline: none;
-  margin: 5px;
+  margin: .25rem;
   position: relative;
-  box-shadow: 
-  2px 2px 5px #ffffff, 
-  -2px -2px 5px #ffffff,
-  0px 4px 5px rgba(0,0,0,0.2); 
   transition: all 0.3s ease;
-  gap: 10px; 
-  
+
+  @if $active {
+    box-shadow: 
+      2px 2px 5px #ffffff, 
+      -2px -2px 5px #ffffff
+      // 0px 4px 5px rgba(0,0,0,0.2);
+  }
 }
 
-@mixin flex-col{
+@mixin flex-col {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
 
 @mixin list {
   list-style: none;
- 
 }

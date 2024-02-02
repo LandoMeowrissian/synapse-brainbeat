@@ -116,12 +116,16 @@ const Sequencer = () => {
 
   return (
     <div className="sequencer">
+      <div className="sequencer-controls">
       <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
-      <GridDisplay grid={grid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('synth', rowIndex, noteIndex)} />
-      <DrumGridDisplay drumGrid={drumGrid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('drum', rowIndex, noteIndex)} />
       <button id="play-button" onClick={handlePlayButton}>
         {playing ? 'Stop' : 'Start'}
       </button>
+      </div>
+     
+      <GridDisplay grid={grid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('synth', rowIndex, noteIndex)} />
+      <DrumGridDisplay drumGrid={drumGrid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('drum', rowIndex, noteIndex)} />
+     
     </div>
   );
 };

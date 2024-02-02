@@ -1,0 +1,63 @@
+/* Styles for the input range slider */
+
+.bpm-slider {
+  display:flex;
+  width: 30%;
+}
+input[type="range"] {
+  -webkit-appearance: none; /* Remove default appearance on Webkit browsers */
+  appearance: none; /* Remove default appearance */
+  width: 100%; /* Full-width */
+  height: 8px; /* Specifying the height of the track */
+  background: #ddd; /* Fallback color for the track */
+  outline: none; /* Remove outline on focus */
+  opacity: 0.7; /* Set the transparency for the slider */
+  transition: opacity .2s; /* Establish a smooth transition */
+}
+
+/* Style for the thumb (the draggable circle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default appearance on Webkit browsers */
+  appearance: none;
+  width: 20px; /* Width and height of the thumb */
+  height: 20px;
+  background: #05FFCF; /* Cool gradient or solid color */
+  cursor: pointer; /* Hand cursor when hovering the thumb */
+  border-radius: 50%; /* Makes it a circle */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #05FFCF;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Style for the track */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #4daeea, #ea4d71); /* Example gradient */
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #4daeea, #ea4d71);
+  border-radius: 4px;
+}
+
+/* Optional: Style for hover effect on the thumb */
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: #323232; /* Darker color on hover */
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+  background: #323232;
+}
+
+span {
+  color:#05FFCF;
+}
