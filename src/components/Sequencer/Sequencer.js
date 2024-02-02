@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import * as Tone from 'tone';
 import Drums from "../Drums/Drums";
+import BPMSlider from './BPMSlider';
+import GridDisplay from './GridDisplay';
+import DrumGridDisplay from './DrumGridDisplay';
 import "./Grid.scss";
 
 const Sequencer = () => {
@@ -113,46 +116,9 @@ const Sequencer = () => {
 
   return (
     <div className="sequencer">
-      <input
-        type="range"
-        id="bpm"
-        min="60"
-        max="240"
-        value={bpm}
-        onChange={(e) => handleBpmChange(e.target.value)}
-      />
-      <span>{bpm} BPM</span>
-
-      <div className="sequencer-grid">
-        {grid.map((row, rowIndex) => (
-          <div className={`button-row-${rowIndex + 1}`} key={`row_${rowIndex}`}>
-            {row.map((note, noteIndex) => (
-              <button
-                className={`note sequencer-step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}
-                key={`note_${rowIndex}_${noteIndex}`}
-                onClick={() => handleNoteClick('synth', rowIndex, noteIndex)}
-                style={{ background: note.isActive ? 'blue' : 'grey' }}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-
-      <div className="sequencer-grid" >
-        {drumGrid.map((row, rowIndex) => (
-          <div className={`button-row-${rowIndex + 1}`} key={`row_${rowIndex}`}>
-            {row.map((note, noteIndex) => (
-              <button
-                className={`note sequencer-step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}
-                key={`note_${rowIndex}_${noteIndex}`}
-                onClick={() => handleNoteClick('drum', rowIndex, noteIndex)}
-                style={{ background: note.isActive ? 'red' : 'grey' }}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-
+      <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
+      <GridDisplay grid={grid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('synth', rowIndex, noteIndex)} />
+      <DrumGridDisplay drumGrid={drumGrid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('drum', rowIndex, noteIndex)} />
       <button id="play-button" onClick={handlePlayButton}>
         {playing ? 'Stop' : 'Start'}
       </button>
