@@ -25,7 +25,7 @@ input {
     border-left: 1mm ridge silver;
     background-size: cover;
     background-position: center;
-    
+   
   }
 }
 
@@ -40,11 +40,11 @@ input {
   border-left: 1mm ridge silver;
 }
 
-// #step-4,
-// #step-8,
-// #step-12{
-//   margin-right: 1rem;
-// }
+#step-4,
+#step-8,
+#step-12{
+  margin-right: 1rem;
+}
 
 .note {
   @include button(); // Inactive state

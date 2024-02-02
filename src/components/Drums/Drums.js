@@ -6,6 +6,29 @@ const createDrums = () => {
     octaves: 2,
     oscillator: { type: "sine" },
   }).toDestination();
+ 
+  const hiHat = new Tone.MetalSynth({
+    frequency: 500,
+    envelope: { attack: 0.01, decay: 0.05 },
+    harmonicity: 2,
+    modulationIndex: 2,
+    resonance: 4000,
+  }).toDestination();
+  const tom1 = new Tone.MembraneSynth({
+    pitchDecay: 0.5,
+    octaves: 6,
+    oscillator: { type: "sine" },
+  }).toDestination();
+  const tom2 = new Tone.MembraneSynth({
+    pitchDecay: 0.5,
+    octaves: 4,
+    oscillator: { type: "sine" },
+  }).toDestination();
+  const tom3 = new Tone.MembraneSynth({
+    pitchDecay: 0.5,
+    octaves: 2,
+    oscillator: { type: "sine" },
+  }).toDestination();
   const snareBody = new Tone.MembraneSynth({
     pitchDecay: 0.005,
     octaves: 4,
@@ -28,29 +51,6 @@ const createDrums = () => {
       snareNoise.triggerAttackRelease(duration, time);
     }
   };
-  const hiHat = new Tone.MetalSynth({
-    frequency: 500,
-    envelope: { attack: 0.01, decay: 0.05 },
-    harmonicity: 2,
-    modulationIndex: 2,
-    resonance: 4000,
-  }).toDestination();
-  const tom1 = new Tone.MembraneSynth({
-    pitchDecay: 0.5,
-    octaves: 6,
-    oscillator: { type: "square" },
-  }).toDestination();
-  const tom2 = new Tone.MembraneSynth({
-    pitchDecay: 0.5,
-    octaves: 4,
-    oscillator: { type: "square" },
-  }).toDestination();
-  const tom3 = new Tone.MembraneSynth({
-    pitchDecay: 0.5,
-    octaves: 2,
-    oscillator: { type: "square" },
-  }).toDestination();
-
 
   return { kick, snare, tom1, tom2, tom3, hiHat };
 };

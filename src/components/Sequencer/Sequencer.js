@@ -18,7 +18,7 @@ const Sequencer = () => {
   const beatRef = useRef(beat);
   const synthRef = useRef(
     new Tone.Synth({
-      oscillator: { type: "sawtooth" },
+      oscillator: { type: "square8" },
       envelope: { attack: 0.05 },
     }).toDestination()
   );
@@ -33,14 +33,12 @@ const Sequencer = () => {
 
   beatRef.current = beat;
 
-  // Function to play a single note
   const playNote = (synth, note) => {
     if (note.isActive) {
       synth.triggerAttackRelease(note.note, "16n", Tone.now());
     }
   };
 
-  // Function to play a single drum sound
   const playDrumSound = (drum, note) => {
     if (note.isActive) {
       drum.triggerAttackRelease("C2", "16n", Tone.now());
@@ -50,7 +48,6 @@ const Sequencer = () => {
   useEffect(() => {
     const repeat = (time) => {
       const currentBeat = beatRef.current;
-      // Synth
       grid.forEach((row, index) => {
         let synth = synthRef.current;
         let note = row[currentBeat];
@@ -58,7 +55,6 @@ const Sequencer = () => {
           synth.triggerAttackRelease(note.note, "16n", time);
         }
       });
-      // Drums
       drumGrid.forEach((row, index) => {
         let drum = drumRefs[drums[index]].current;
         let note = row[currentBeat];
