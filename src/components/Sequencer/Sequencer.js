@@ -1,35 +1,51 @@
-import { useState, useEffect, useRef } from 'react';
-import * as Tone from 'tone';
+import { useState, useEffect, useRef } from "react";
+import * as Tone from "tone";
 import Drums from "../Drums/Drums";
-import BPMSlider from './BPMSlider';
-import GridDisplay from './GridDisplay';
-import DrumGridDisplay from './DrumGridDisplay';
+import BPMSlider from "./BPMSlider";
+import GridDisplay from "./GridDisplay";
+import DrumGridDisplay from "./DrumGridDisplay";
 import "./Grid.scss";
 
 const Sequencer = () => {
   const [bpm, setBpm] = useState(120);
   const notes = ["F3", "Eb3", "C3", "Bb2", "Ab2", "F2"];
-  const drums = ["kick", "snare", "hiHat", "tom1", "tom2", "tom3"]
+  const drums = ["kick", "snare", "hiHat", "tom1", "tom2", "tom3"];
   const [grid, setGrid] = useState(makeGrid(notes));
   const [drumGrid, setDrumGrid] = useState(makeDrumGrid(drums));
   const [playing, setPlaying] = useState(false);
   const [started, setStarted] = useState(false);
   const [beat, setBeat] = useState(0);
-  const beatRef = useRef(beat); 
-  const synthRef = useRef(new Tone.Synth({
-    oscillator: { type: "sawtooth" },
-    envelope: { attack: 0.05 }
-  }).toDestination());
+  const beatRef = useRef(beat);
+  const synthRef = useRef(
+    new Tone.Synth({
+      oscillator: { type: "sawtooth" },
+      envelope: { attack: 0.05 },
+    }).toDestination()
+  );
   const drumRefs = {
     kick: useRef(Drums.kick),
     snare: useRef(Drums.snare),
     hiHat: useRef(Drums.hiHat),
     tom1: useRef(Drums.tom1),
     tom2: useRef(Drums.tom2),
-    tom3: useRef(Drums.tom3)
+    tom3: useRef(Drums.tom3),
   };
 
-  beatRef.current = beat; 
+  beatRef.current = beat;
+
+  // Function to play a single note
+  const playNote = (synth, note) => {
+    if (note.isActive) {
+      synth.triggerAttackRelease(note.note, "16n", Tone.now());
+    }
+  };
+
+  // Function to play a single drum sound
+  const playDrumSound = (drum, note) => {
+    if (note.isActive) {
+      drum.triggerAttackRelease("C2", "16n", Tone.now());
+    }
+  };
 
   useEffect(() => {
     const repeat = (time) => {
@@ -70,25 +86,47 @@ const Sequencer = () => {
   }, [started, bpm, grid, drumGrid]);
 
   function makeGrid(notes) {
-    return notes.map(note => new Array(16).fill().map(()=>({ note: note, isActive: false })));
+    return notes.map((note) =>
+      new Array(16).fill().map(() => ({ note: note, isActive: false }))
+    );
   }
   function makeDrumGrid(drums) {
-    return drums.map(note => new Array(16).fill().map(()=>({ note: note, isActive: false })));
+    return drums.map((note) =>
+      new Array(16).fill().map(() => ({ note: note, isActive: false }))
+    );
   }
 
   const handleNoteClick = (gridType, rowIndex, noteIndex) => {
-    if (gridType === 'synth') {
-      const newGrid = grid.map((row, rIndex) => 
-        rIndex === rowIndex ? row.map((note, nIndex) => 
-          nIndex === noteIndex ? {...note, isActive: !note.isActive} : note
-        ) : row
+    if (gridType === "synth") {
+      const newGrid = grid.map((row, rIndex) =>
+        rIndex === rowIndex
+          ? row.map((note, nIndex) => {
+              if (nIndex === noteIndex) {
+                playNote(synthRef.current, {
+                  ...note,
+                  isActive: !note.isActive,
+                });
+                return { ...note, isActive: !note.isActive };
+              }
+              return note;
+            })
+          : row
       );
       setGrid(newGrid);
-    } else if (gridType === 'drum') {
-      const newDrumGrid = drumGrid.map((row, rIndex) => 
-        rIndex === rowIndex ? row.map((note, nIndex) => 
-          nIndex === noteIndex ? {...note, isActive: !note.isActive} : note
-        ) : row
+    } else if (gridType === "drum") {
+      const newDrumGrid = drumGrid.map((row, rIndex) =>
+        rIndex === rowIndex
+          ? row.map((note, nIndex) => {
+              if (nIndex === noteIndex) {
+                playDrumSound(drumRefs[drums[rIndex]].current, {
+                  ...note,
+                  isActive: !note.isActive,
+                });
+                return { ...note, isActive: !note.isActive };
+              }
+              return note;
+            })
+          : row
       );
       setDrumGrid(newDrumGrid);
     }
@@ -117,15 +155,24 @@ const Sequencer = () => {
   return (
     <div className="sequencer">
       <div className="sequencer-controls">
-      <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
-      <button id="play-button" onClick={handlePlayButton}>
-        {playing ? 'Stop' : 'Start'}
-      </button>
+        <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
+        <button id="play-button" onClick={handlePlayButton}>
+          {playing ? "Stop" : "Start"}
+        </button>
       </div>
-     
-      <GridDisplay grid={grid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('synth', rowIndex, noteIndex)} />
-      <DrumGridDisplay drumGrid={drumGrid} onNoteClick={(rowIndex, noteIndex) => handleNoteClick('drum', rowIndex, noteIndex)} />
-     
+
+      <GridDisplay
+        grid={grid}
+        onNoteClick={(rowIndex, noteIndex) =>
+          handleNoteClick("synth", rowIndex, noteIndex)
+        }
+      />
+      <DrumGridDisplay
+        drumGrid={drumGrid}
+        onNoteClick={(rowIndex, noteIndex) =>
+          handleNoteClick("drum", rowIndex, noteIndex)
+        }
+      />
     </div>
   );
 };
