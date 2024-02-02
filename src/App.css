@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+body {
+  background-image: url("./assets/images/nebula.png");
+}
+
+.App {
+  height: 100%;
+  border: 1mm ridge silver;
+  border-radius: 5%;
+}/*# sourceMappingURL=App.css.map */

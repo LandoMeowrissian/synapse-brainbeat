@@ -1,23 +1,15 @@
 import "./App.scss";
-// import HomePage from "./pages/HomePage/HomePage";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Player from "./pages/Player/Player";
 import Sequencer from "./components/Sequencer/Sequencer";
-
+import Header from "./components/Header/Header";
 function App( ) {
  
 
   return (
     <>
+      <Header/>
       <Sequencer/>
     </>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route path="/player" element={<Player />} />
-    //     <Route path="/sequence" element={<Sequencer/>}/>
-    //   </Routes>
-    // </BrowserRouter>
+   
   );
 }
 

@@ -1,0 +1,177 @@
+@import "../../styles/mixins";
+
+
+input {
+  color: black;
+}
+.sequencer {
+  
+ 
+  &-controls {
+    display: flex;
+    align-items:center;
+  }
+  &-grid {
+    perspective: 800px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 2px solid black;
+    border-top: 1mm ridge silver;
+    border-bottom: 1mm ridge silver;
+    border-right: 1mm ridge silver;
+    border-left: 1mm ridge silver;
+    background-size: cover;
+    background-position: center;
+    
+  }
+}
+
+#row {
+  background-image: url("../../assets/images/nebula.png");
+  
+  width:65%;
+  border-bottom-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+  border-top: 1mm ridge silver;
+  border-right: 1mm ridge silver;
+  border-left: 1mm ridge silver;
+}
+
+// #step-4,
+// #step-8,
+// #step-12{
+//   margin-right: 1rem;
+// }
+
+.note {
+  @include button(); // Inactive state
+  
+  &.note-is-active {
+    @include button($active: true); // Active state with shadow
+  }
+ 
+ 
+  &.sequencer-step-0-0.note-is-active,
+  &.sequencer-step-0-1.note-is-active,
+  &.sequencer-step-0-2.note-is-active,
+  &.sequencer-step-0-3.note-is-active,
+  &.sequencer-step-0-4.note-is-active,
+  &.sequencer-step-0-5.note-is-active,
+  &.sequencer-step-0-6.note-is-active,
+  &.sequencer-step-0-7.note-is-active,
+  &.sequencer-step-0-8.note-is-active,
+  &.sequencer-step-0-9.note-is-active,
+  &.sequencer-step-0-10.note-is-active,
+  &.sequencer-step-0-11.note-is-active,
+  &.sequencer-step-0-12.note-is-active,
+  &.sequencer-step-0-13.note-is-active,
+  &.sequencer-step-0-14.note-is-active,
+  &.sequencer-step-0-15.note-is-active,
+  &.sequencer-step-0-16.note-is-active {
+    background: linear-gradient(to bottom right, #05FFCF, #323232);
+  }
+  &.sequencer-step-1-0.note-is-active,
+  &.sequencer-step-1-1.note-is-active,
+  &.sequencer-step-1-2.note-is-active,
+  &.sequencer-step-1-3.note-is-active,
+  &.sequencer-step-1-4.note-is-active,
+  &.sequencer-step-1-5.note-is-active,
+  &.sequencer-step-1-6.note-is-active,
+  &.sequencer-step-1-7.note-is-active,
+  &.sequencer-step-1-8.note-is-active,
+  &.sequencer-step-1-9.note-is-active,
+  &.sequencer-step-1-10.note-is-active,
+  &.sequencer-step-1-11.note-is-active,
+  &.sequencer-step-1-12.note-is-active,
+  &.sequencer-step-1-13.note-is-active,
+  &.sequencer-step-1-14.note-is-active,
+  &.sequencer-step-1-15.note-is-active,
+  &.sequencer-step-1-16.note-is-active  {
+    background: linear-gradient(to bottom right, #5DD478, #323232);
+  }
+  &.sequencer-step-2-0.note-is-active,
+  &.sequencer-step-2-1.note-is-active,
+  &.sequencer-step-2-2.note-is-active,
+  &.sequencer-step-2-3.note-is-active,
+  &.sequencer-step-2-4.note-is-active,
+  &.sequencer-step-2-5.note-is-active,
+  &.sequencer-step-2-6.note-is-active,
+  &.sequencer-step-2-7.note-is-active,
+  &.sequencer-step-2-8.note-is-active,
+  &.sequencer-step-2-9.note-is-active,
+  &.sequencer-step-2-10.note-is-active,
+  &.sequencer-step-2-11.note-is-active,
+  &.sequencer-step-2-12.note-is-active,
+  &.sequencer-step-2-13.note-is-active,
+  &.sequencer-step-2-14.note-is-active,
+  &.sequencer-step-2-15.note-is-active,
+  &.sequencer-step-2-16.note-is-active {
+    background: linear-gradient(to bottom right, #ff57ab, #323232);
+  }
+  &.sequencer-step-3-0.note-is-active,
+  &.sequencer-step-3-1.note-is-active,
+  &.sequencer-step-3-2.note-is-active,
+  &.sequencer-step-3-3.note-is-active,
+  &.sequencer-step-3-4.note-is-active,
+  &.sequencer-step-3-5.note-is-active,
+  &.sequencer-step-3-6.note-is-active,
+  &.sequencer-step-3-7.note-is-active,
+  &.sequencer-step-3-8.note-is-active,
+  &.sequencer-step-3-9.note-is-active,
+  &.sequencer-step-3-10.note-is-active,
+  &.sequencer-step-3-11.note-is-active,
+  &.sequencer-step-3-12.note-is-active,
+  &.sequencer-step-3-13.note-is-active,
+  &.sequencer-step-3-14.note-is-active,
+  &.sequencer-step-3-15.note-is-active,
+  &.sequencer-step-3-16.note-is-active 
+   {
+    background: linear-gradient(to bottom right, #ff00ff, #323232);
+  }
+  &.sequencer-step-4-0.note-is-active,
+  &.sequencer-step-4-1.note-is-active,
+  &.sequencer-step-4-2.note-is-active,
+  &.sequencer-step-4-3.note-is-active,
+  &.sequencer-step-4-4.note-is-active,
+  &.sequencer-step-4-5.note-is-active,
+  &.sequencer-step-4-6.note-is-active,
+  &.sequencer-step-4-7.note-is-active,
+  &.sequencer-step-4-8.note-is-active,
+  &.sequencer-step-4-9.note-is-active,
+  &.sequencer-step-4-10.note-is-active,
+  &.sequencer-step-4-11.note-is-active,
+  &.sequencer-step-4-12.note-is-active,
+  &.sequencer-step-4-13.note-is-active,
+  &.sequencer-step-4-14.note-is-active,
+  &.sequencer-step-4-15.note-is-active,
+  &.sequencer-step-4-16.note-is-active 
+  {
+    background: linear-gradient(to bottom right, #ea4d71, #323232);
+  }
+  &.sequencer-step-5-0.note-is-active,
+  &.sequencer-step-5-1.note-is-active,
+  &.sequencer-step-5-2.note-is-active,
+  &.sequencer-step-5-3.note-is-active,
+  &.sequencer-step-5-4.note-is-active,
+  &.sequencer-step-5-5.note-is-active,
+  &.sequencer-step-5-6.note-is-active,
+  &.sequencer-step-5-7.note-is-active,
+  &.sequencer-step-5-8.note-is-active,
+  &.sequencer-step-5-9.note-is-active,
+  &.sequencer-step-5-10.note-is-active,
+  &.sequencer-step-5-11.note-is-active,
+  &.sequencer-step-5-12.note-is-active,
+  &.sequencer-step-5-13.note-is-active,
+  &.sequencer-step-5-14.note-is-active,
+  &.sequencer-step-5-15.note-is-active,
+  &.sequencer-step-5-16.note-is-active  {
+    background: linear-gradient(to bottom right, #4daeea, #323232);
+  }
+}
+
+button {
+  @include button;
+}
