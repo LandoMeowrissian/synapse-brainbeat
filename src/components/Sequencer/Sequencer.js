@@ -16,6 +16,8 @@ const Sequencer = () => {
   const [started, setStarted] = useState(false);
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
+
+  
   const synthRef = useRef(
     new Tone.Synth({
       oscillator: { type: "square8" },
