@@ -1,4 +1,3 @@
-// src/components/Sequencer/DrumGridDisplay.js
 
 const DrumGridDisplay = ({ drumGrid, onNoteClick }) => (
   <div className="sequencer-grid">
