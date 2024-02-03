@@ -1,7 +1,6 @@
 import * as Tone from "tone";
 import { useState } from "react";
 
-
 const Effects = () => {
   const [isDelayActive, setDelayActive] = useState(false);
   const [isDistortionActive, setDistortionActive] = useState(false);
@@ -14,21 +13,23 @@ const Effects = () => {
 
   // const toggleDelay = () => {
   //   setDelayActive(!isDelayActive);
-  //   if (!isDelayActive) {
-  //     synth.chain(delay);
-  //   } else {
+  //   console.log(isDelayActive);
+  //   if (isDelayActive) {
   //     synth.disconnect(delay);
+  //   } else {
+  //     synth.connect(delay);
   //   }
   // }
 
-  // const toggleDistortion = () => {
-  //   setDistortionActive(!isDistortionActive);
-  //   if (isDistortionActive) {
-  //     synth.disconnect(distortion);
-  //   } else {
-  //     synth.chain(distortion);
-  //   }
-  // }
+  const toggleDistortion = () => {
+    setDistortionActive(!isDistortionActive);
+    if (!isDistortionActive) {
+      distortion.wet.value = 0;
+    } else {
+      synth.connect(distortion, Tone.Destination);
+    }
+  };
+
 
   // const toggleReverb = () => {
   //   setReverbActive(!isReverbActive);
@@ -40,20 +41,21 @@ const Effects = () => {
   // }
 
   const handleClickSynth = () => {
-    synth.triggerAttackRelease("C4", "8n")
+    const synth = new Tone.Synth().toDestination();
     Tone.start();
-  }
+    synth.triggerAttackRelease("C4", "8n");
+  };
 
   return (
     <div>
       <button onClick={handleClickSynth}>play</button>
-      {/* <button onClick={toggleDelay}>{isDelayActive ? "off" : "on"} delay</button>
-      <button onClick={toggleDistortion}>{isDistortionActive ? "off" : "on"}</button>
-      <button onClick={toggleReverb}>{ isReverbActive ? "off" : "on" }</button> */}
+      {/* <button onClick={toggleDelay}>{isDelayActive ? "off" : "on"} delay</button> */}
+      <button onClick={toggleDistortion}>
+        {isDistortionActive ? "off" : "on"}
+      </button>
+      {/* <button onClick={toggleReverb}>{ isReverbActive ? "off" : "on" }</button>  */}
     </div>
-  )
-
-
+  );
 };
 
 export default Effects;
