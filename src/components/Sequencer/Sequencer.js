@@ -17,16 +17,14 @@ const Sequencer = () => {
   const [started, setStarted] = useState(false);
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
+  const reverb = new Tone.JCReverb(0.2).toDestination();
+  const delay = new Tone.PingPongDelay("16n", 0.02).toDestination();
 
-  // const [effects, setEffects] = useState([
-  //   { name: 'phaser', isOn: false, assignedRow: null },
-  //   { name: 'delay', isOn: false, assignedRow: null },
-  //   //  more effects as needed
-  // ]);
 
-  const synthRef = useRef(
+  let synthRef = useRef(
+
     new Tone.Synth({
-      oscillator: { type: "square8" },
+      oscillator: { type: "sawtooth" },
       envelope: { attack: 0.05 },
     }).toDestination()
   );
@@ -44,7 +42,7 @@ const Sequencer = () => {
 
   const playNote = (synth, note) => {
     if (note.isActive) {
-      synth.triggerAttackRelease(note.note, "16n", Tone.now());
+      synth.triggerAttackRelease(note.note, "8n", Tone.now());
     }
   };
 
