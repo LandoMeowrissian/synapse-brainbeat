@@ -1,6 +1,7 @@
 @import "../../styles/mixins";
 
 .row-select {
+  display:none;
   @include flex-col;
   width: 5%;
   border: 1px solid silver;
@@ -8,8 +9,9 @@
   right: 200px;
   margin-top: 1rem;
   &__button {
-   
-   margin-bottom: 22.5px;
+   padding: 1rem;
+   margin-top: .5rem;
+   display:none;
   
   }
 }

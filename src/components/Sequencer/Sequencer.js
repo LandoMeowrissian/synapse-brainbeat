@@ -169,7 +169,7 @@ const Sequencer = () => {
             className="row-select__button"
             id={index + 1}
             key={index} onClick={() => onSelectRow(index)}>
-            {index + 1}
+            
           </button>
         ))}
       </div>
@@ -183,7 +183,7 @@ const Sequencer = () => {
             className="row-select__button"
             id={index + 6}
             key={index} onClick={() => onSelectRow(index)}>
-             {index + 1}
+            
           </button>
         ))}
       </div>

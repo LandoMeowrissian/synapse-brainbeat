@@ -1,15 +1,15 @@
 import "./App.scss";
-import Sequencer from "./components/Sequencer/Sequencer";
-// import EffectsPanel from "./components/Effects/EffectsPanel";
-import Header from "./components/Header/Header";
+// import Sequencer from "./components/Sequencer/Sequencer";
+import Effects from "./components/Effects/Effects";
+// import Header from "./components/Header/Header";
 function App( ) {
  
 
   return (
     <>
-      {/* <EffectsPanel /> */}
-      <Header/>
-      <Sequencer/> 
+      <Effects/>
+      {/* <Header/>
+      <Sequencer/>  */}
     </>
    
   );
