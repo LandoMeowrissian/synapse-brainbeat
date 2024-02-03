@@ -4,6 +4,7 @@ import Drums from "../Drums/Drums";
 import BPMSlider from "./BPMSlider";
 import GridDisplay from "./GridDisplay";
 import DrumGridDisplay from "./DrumGridDisplay";
+import  "./RowSelect.scss";
 import "./Grid.scss";
 
 const Sequencer = () => {
@@ -16,6 +17,12 @@ const Sequencer = () => {
   const [started, setStarted] = useState(false);
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
+
+  // const [effects, setEffects] = useState([
+  //   { name: 'phaser', isOn: false, assignedRow: null },
+  //   { name: 'delay', isOn: false, assignedRow: null },
+  //   //  more effects as needed
+  // ]);
 
   const synthRef = useRef(
     new Tone.Synth({
@@ -154,6 +161,40 @@ const Sequencer = () => {
     setPlaying(false);
   };
 
+  const SynthRowSelect = ({ onSelectRow }) => {
+    return (
+      <div className="row-select">
+        {notes.map((note, index) => (
+          <button
+            className="row-select__button"
+            id={index + 1}
+            key={index} onClick={() => onSelectRow(index)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
+    );
+  };
+  const DrumRowSelect = ({ onSelectRow }) => {
+    return (
+      <div className="row-select">
+        {notes.map((note, index) => (
+          <button
+            className="row-select__button"
+            id={index + 6}
+            key={index} onClick={() => onSelectRow(index)}>
+             {index + 1}
+          </button>
+        ))}
+      </div>
+    );
+  };
+
+  const handleRowSelection = (rowIndex) => {
+    console.log("Selected row:", rowIndex);
+    // Implement row selection logic here...
+  };
+
   return (
     <div className="sequencer">
       <div className="sequencer-controls">
@@ -166,26 +207,28 @@ const Sequencer = () => {
         </button>
       </div>
 
-      <GridDisplay
-        grid={grid}
-        onNoteClick={(rowIndex, noteIndex) =>
-          handleNoteClick("synth", rowIndex, noteIndex)
-        }
-      />
-      <DrumGridDisplay
-        drumGrid={drumGrid}
-        onNoteClick={(rowIndex, noteIndex) =>
-          handleNoteClick("drum", rowIndex, noteIndex)
-        }
-      />
+      <div className="sequencer-synth">
+        <GridDisplay
+          grid={grid}
+          onNoteClick={(rowIndex, noteIndex) =>
+            handleNoteClick("synth", rowIndex, noteIndex)
+          }
+        />
+        <SynthRowSelect onSelectRow={handleRowSelection} />
+      </div>
+      <div className="sequencer-drums">
+        <DrumGridDisplay
+          drumGrid={drumGrid}
+          onNoteClick={(rowIndex, noteIndex) =>
+            handleNoteClick("drum", rowIndex, noteIndex)
+          }
+        />
+        <DrumRowSelect onSelectRow={handleRowSelection} />
+
+       
+      </div>
     </div>
   );
 };
 
 export default Sequencer;
-
-// if (playing) {
-//   Tone.Transport.stop();
-// } else {
-//   Tone.Transport.start();
-// }

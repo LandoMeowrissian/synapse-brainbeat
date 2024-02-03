@@ -11,6 +11,7 @@
   margin: .25rem;
   position: relative;
   transition: all 0.3s ease;
+  text-align:center;
 }
 
 @mixin note-gradient($start-color) {
