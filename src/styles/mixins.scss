@@ -2,9 +2,9 @@
   background-image: url("../assets/images/black-metal-texture.png");
   background-size: contain;
   background-position: center;
-  color: white;
+  color: #ddd;
   border: 1px ridge silver;
-  border-radius: 5%; 
+  border-radius: 15%; 
   padding: 1rem 1rem;
   cursor: pointer;
   outline: none;
@@ -12,12 +12,6 @@
   position: relative;
   transition: all 0.3s ease;
 
-  @if $active {
-    box-shadow: 
-      2px 2px 5px #ffffff, 
-      -2px -2px 5px #ffffff
-      // 0px 4px 5px rgba(0,0,0,0.2);
-  }
 }
 
 @mixin flex-col {
