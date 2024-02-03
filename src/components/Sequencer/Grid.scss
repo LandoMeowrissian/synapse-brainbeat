@@ -1,63 +1,62 @@
 @import "../../styles/mixins";
 
+$border-style: 1mm ridge silver;
 
-input {
-  color: black;
-}
 .sequencer {
-  
- 
-  &-controls {
+  &-controls,
+  &-grid {
     display: flex;
-    align-items:center;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    border-top: 1mm ridge silver;
-    border-right: 1mm ridge silver;
-    border-left: 1mm ridge silver;
-    
+    border-top: $border-style;
+    border-right: $border-style;
+    border-left: $border-style;
   }
   &-grid {
-    perspective: 800px; 
-    display: flex;
+    perspective: 800px;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
     padding: 1rem;
-    border-radius: 5px;
-    border-top: 1mm ridge silver;
-    border-right: 1mm ridge silver;
-    border-left: 1mm ridge silver;
-    
-   
   }
+}
+#row {
+  width: 65%;
+  perspective: 600px;
+  border-bottom-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+  border-top: $border-style;
+  border-right: $border-style;
+  border-left: $border-style;
+  background: linear-gradient(to bottom, #323232, #ffffff, #777575, #ffffff);
 }
 
 #row {
-  width:65%;
-  perspective: 600px; 
+  width: 65%;
+  perspective: 600px;
   border-bottom-right-radius: 5%;
   border-bottom-left-radius: 5%;
   border-top: 1mm ridge silver;
   border-right: 1mm ridge silver;
   border-left: 1mm ridge silver;
-  background: linear-gradient(to bottom , #323232, #ffffff, #777575, #ffffff);
-  
+  background: linear-gradient(to bottom, #323232, #ffffff, #777575, #ffffff);
 }
-
 
 #step-4,
 #step-8,
-#step-12{
+#step-12,
+#drum-step-4,
+#drum-step-8,
+#drum-step-12 {
   margin-right: 1rem;
 }
 
 .note {
-  @include button(); // Inactive state
-  
+  @include button-square;
   &.note-is-active {
-    @include button($active: true); // Active state with shadow
+    @include button-square($active: true);
   }
- 
- 
+
   &.step-0-0.note-is-active,
   &.step-0-1.note-is-active,
   &.step-0-2.note-is-active,
@@ -75,13 +74,10 @@ input {
   &.step-0-14.note-is-active,
   &.step-0-15.note-is-active,
   &.step-0-16.note-is-active {
-    background: linear-gradient(to bottom right, #05FFCF ,#777575,);
-    box-shadow: 
-      2px 2px 5px #05FFCF, 
-      -2px -2px 5px #05FFCF
+    background: linear-gradient(to bottom right, #05ffcf, #323232);
+    box-shadow: 2px 2px 5px #05ffcf, -2px -2px 5px #05ffcf;
   }
 
- 
   &.step-1-0.note-is-active,
   &.step-1-1.note-is-active,
   &.step-1-2.note-is-active,
@@ -98,8 +94,8 @@ input {
   &.step-1-13.note-is-active,
   &.step-1-14.note-is-active,
   &.step-1-15.note-is-active,
-  &.step-1-16.note-is-active  {
-    background: linear-gradient(to bottom right, #5DD478, #323232);
+  &.step-1-16.note-is-active {
+    background: linear-gradient(to bottom right, #5dd478, #323232);
   }
   &.step-2-0.note-is-active,
   &.step-2-1.note-is-active,
@@ -136,8 +132,7 @@ input {
   &.step-3-13.note-is-active,
   &.step-3-14.note-is-active,
   &.step-3-15.note-is-active,
-  &.step-3-16.note-is-active 
-   {
+  &.step-3-16.note-is-active {
     background: linear-gradient(to bottom right, #ff00ff, #323232);
   }
   &.step-4-0.note-is-active,
@@ -156,8 +151,7 @@ input {
   &.step-4-13.note-is-active,
   &.step-4-14.note-is-active,
   &.step-4-15.note-is-active,
-  &.step-4-16.note-is-active 
-  {
+  &.step-4-16.note-is-active {
     background: linear-gradient(to bottom right, #ea4d71, #323232);
   }
   &.step-5-0.note-is-active,
@@ -176,11 +170,11 @@ input {
   &.step-5-13.note-is-active,
   &.step-5-14.note-is-active,
   &.step-5-15.note-is-active,
-  &.step-5-16.note-is-active  {
+  &.step-5-16.note-is-active {
     background: linear-gradient(to bottom right, #4daeea, #323232);
   }
 }
 
 button {
-  @include button;
+  @include button-square;
 }

@@ -1,4 +1,4 @@
-@mixin button($active: false) {
+@mixin button-square($active: false) {
   background-image: url("../assets/images/black-metal-texture.png");
   background-size: contain;
   background-position: center;
@@ -11,8 +11,16 @@
   margin: .25rem;
   position: relative;
   transition: all 0.3s ease;
-
 }
+
+@mixin note-gradient($start-color) {
+  background: linear-gradient(to bottom right, $start-color, #323232);
+  box-shadow: 
+    2px 2px 5px $start-color, 
+    -2px -2px 5px $start-color;
+}
+
+
 
 @mixin flex-col {
   display: flex;

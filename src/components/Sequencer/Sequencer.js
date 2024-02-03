@@ -17,14 +17,12 @@ const Sequencer = () => {
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
 
-
   const synthRef = useRef(
     new Tone.Synth({
       oscillator: { type: "square8" },
       envelope: { attack: 0.05 },
     }).toDestination()
   );
-
 
   const drumRefs = {
     kick: useRef(Drums.kick),
@@ -73,7 +71,6 @@ const Sequencer = () => {
     Tone.Transport.cancel();
     Tone.Transport.stop();
 
-
     if (started && playing) {
       Tone.Transport.bpm.value = bpm;
       Tone.Transport.scheduleRepeat(repeat, "16n");
@@ -82,10 +79,8 @@ const Sequencer = () => {
       Tone.Transport.stop();
     }
     return () => {
-    
-        Tone.Transport.cancel();
-        Tone.Transport.stop();
-      
+      Tone.Transport.cancel();
+      Tone.Transport.stop();
     };
   }, [started, bpm, grid, drumGrid]);
 
@@ -150,7 +145,7 @@ const Sequencer = () => {
     setPlaying(true);
   };
 
-  const handleStopButton = () => {  
+  const handleStopButton = () => {
     if (started) {
       Tone.Transport.stop();
       Tone.Transport.cancel();
@@ -164,11 +159,11 @@ const Sequencer = () => {
       <div className="sequencer-controls">
         <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
         <button id="play-button" onClick={handlePlayButton}>
-         Start
+          Start
         </button>
-        <button id="stop-button" onClick={handleStopButton}> 
-        Stop
-      </button>
+        <button id="stop-button" onClick={handleStopButton}>
+          Stop
+        </button>
       </div>
 
       <GridDisplay

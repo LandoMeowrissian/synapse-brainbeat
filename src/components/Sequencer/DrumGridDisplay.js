@@ -1,6 +1,6 @@
 
 const DrumGridDisplay = ({ drumGrid, onNoteClick }) => (
-  <div className="sequencer-grid">
+  <div className="sequencer-grid drums">
     {drumGrid.map((row, rowIndex) => (
       <div
         id="row"
@@ -9,8 +9,9 @@ const DrumGridDisplay = ({ drumGrid, onNoteClick }) => (
       >
         {row.map((note, noteIndex) => (
           <button
-            id={`step-${noteIndex + 1}`}
-            className={`note sequencer-step-${rowIndex}-${noteIndex} ${
+            name="drum-button"
+            id={`drum-step-${noteIndex + 1}`}
+            className={`note step-${rowIndex}-${noteIndex} ${
               note.isActive ? "note-is-active" : ""
             }`}
             key={`note_${rowIndex}_${noteIndex}`}
