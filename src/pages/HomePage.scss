@@ -3,11 +3,15 @@
 
 .home {
   @include flex-col;
+  margin-top: 10rem;
   align-items: center;
   height: 100vh;
-  
 }
 
+input[name="login"] {
+  appearance:initial;
+  @include inline-marg
+}
 .login {
   padding: 3rem 0 3rem 0;
  
@@ -28,13 +32,10 @@
   }
   h2,
   label {
-    // @include font-gradient;
     color: white;
     padding: 1rem;
   }
-  input {
-    @include inline-marg
-  }
+
 
   &-button {
     @include inline-marg;
@@ -50,5 +51,6 @@
 
   &-button:hover{
     cursor:pointer;
+    @include font-gradient;
   }
 }
