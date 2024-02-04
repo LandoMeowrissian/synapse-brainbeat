@@ -38,7 +38,7 @@
 
 <h3>controls</h3>
 <img width="649" alt="Screenshot 2024-02-04 at 3 57 00 PM" src="https://github.com/LandoMeowrissian/synapse-brainbeat/assets/128652765/eed6d6ca-b923-4bf4-8570-1b9396991acf">
-<p>Use the slider to adjust the tempo</p>
+<p>Use the slider to adjust the tempo (be gentle or she will get sad)</p>
 <p>Click the start button to start the loop</p>
 <p>Click the stop to stop the loop</p>
 
