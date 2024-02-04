@@ -1,1 +1,1 @@
-<img width="1728" alt="Screenshot 2024-02-04 at 2 49 48 PM" src="https://github.com/LandoMeowrissian/synapse-brainbeat/assets/128652765/1eede772-1728-475e-9f9e-6860c5e01780">
+<img width="1728" alt="player-screenshot" src="https://github.com/LandoMeowrissian/synapse-brainbeat/assets/128652765/24c40568-23d1-47c0-8040-f3be3b73be6b">
