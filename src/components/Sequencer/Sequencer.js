@@ -4,7 +4,6 @@ import Drums from "../Drums/Drums";
 import BPMSlider from "./BPMSlider";
 import GridDisplay from "./GridDisplay";
 import DrumGridDisplay from "./DrumGridDisplay";
-import  "./RowSelect.scss";
 import "./Grid.scss";
 
 const Sequencer = () => {
@@ -18,15 +17,9 @@ const Sequencer = () => {
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
 
-  // const [effects, setEffects] = useState([
-  //   { name: 'phaser', isOn: false, assignedRow: null },
-  //   { name: 'delay', isOn: false, assignedRow: null },
-  //   //  more effects as needed
-  // ]);
-
-  const synthRef = useRef(
+  let synthRef = useRef(
     new Tone.Synth({
-      oscillator: { type: "square8" },
+      oscillator: { type: "sawtooth" },
       envelope: { attack: 0.05 },
     }).toDestination()
   );
@@ -44,7 +37,7 @@ const Sequencer = () => {
 
   const playNote = (synth, note) => {
     if (note.isActive) {
-      synth.triggerAttackRelease(note.note, "16n", Tone.now());
+      synth.triggerAttackRelease(note.note, "8n", Tone.now());
     }
   };
 
@@ -80,7 +73,7 @@ const Sequencer = () => {
 
     if (started && playing) {
       Tone.Transport.bpm.value = bpm;
-      Tone.Transport.scheduleRepeat(repeat, "16n");
+      Tone.Transport.scheduleRepeat(repeat, "8n");
       Tone.Transport.start();
     } else {
       Tone.Transport.stop();
@@ -161,50 +154,21 @@ const Sequencer = () => {
     setPlaying(false);
   };
 
-  const SynthRowSelect = ({ onSelectRow }) => {
-    return (
-      <div className="row-select">
-        {notes.map((note, index) => (
-          <button
-            className="row-select__button"
-            id={index + 1}
-            key={index} onClick={() => onSelectRow(index)}>
-            
-          </button>
-        ))}
-      </div>
-    );
-  };
-  const DrumRowSelect = ({ onSelectRow }) => {
-    return (
-      <div className="row-select">
-        {notes.map((note, index) => (
-          <button
-            className="row-select__button"
-            id={index + 6}
-            key={index} onClick={() => onSelectRow(index)}>
-            
-          </button>
-        ))}
-      </div>
-    );
-  };
-
-  const handleRowSelection = (rowIndex) => {
-    console.log("Selected row:", rowIndex);
-    // Implement row selection logic here...
-  };
-
   return (
     <div className="sequencer">
       <div className="sequencer-controls">
+        <div className="sequencer-controls__slider" >
         <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
-        <button id="play-button" onClick={handlePlayButton}>
-          Start
-        </button>
-        <button id="stop-button" onClick={handleStopButton}>
-          Stop
-        </button>
+
+        </div>
+        <div className="sequencer-controls__buttons">
+          <button id="play-button" onClick={handlePlayButton}>
+            Start
+          </button>
+          <button id="stop-button" onClick={handleStopButton}>
+            Stop
+          </button>
+        </div>
       </div>
 
       <div className="sequencer-synth">
@@ -214,7 +178,6 @@ const Sequencer = () => {
             handleNoteClick("synth", rowIndex, noteIndex)
           }
         />
-        <SynthRowSelect onSelectRow={handleRowSelection} />
       </div>
       <div className="sequencer-drums">
         <DrumGridDisplay
@@ -223,9 +186,6 @@ const Sequencer = () => {
             handleNoteClick("drum", rowIndex, noteIndex)
           }
         />
-        <DrumRowSelect onSelectRow={handleRowSelection} />
-
-       
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
+@import "./variables.scss";
+
 @mixin button-square($active: false) {
-  background-image: url("../assets/images/black-metal-texture.png");
-  background-size: contain;
-  background-position: center;
   color: #ddd;
-  border: 1px ridge silver;
-  border-radius: 15%; 
+  background-color:#323232;
+  border: none;
   padding: 1rem 1rem;
   cursor: pointer;
   outline: none;
@@ -12,6 +11,7 @@
   position: relative;
   transition: all 0.3s ease;
   text-align:center;
+  font-family: $font-stack
 }
 
 @mixin note-gradient($start-color) {
@@ -21,7 +21,16 @@
     -2px -2px 5px $start-color;
 }
 
-
+@mixin font-gradient{
+  background: linear-gradient(to right, #05ffcf, #43e96a,#4daeea,#6c6cf6,#7e42f8,#ff57ab,#ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
+@mixin box-gradient{
+  background:#323232; 
+  box-shadow: 3px 3px 5px 0px #05ffcf, 6px 6px 5px 0px #43e96a, 9px 9px 5px 0px #4daeea, 12px 12px 5px 0px #6c6cf6, 15px 15px 5px 0px #7e42f8, 18px 18px 5px 0px #ff57ab, 21px 21px 5px 0px #ff00ff;
+  background: linear-gradient(to bottom right, #05ffcf, #ff00ff);
+} 
 
 @mixin flex-col {
   display: flex;
@@ -30,4 +39,9 @@
 
 @mixin list {
   list-style: none;
+}
+
+@mixin inline-marg{
+  margin-left: 1rem;
+  margin-right:1rem
 }

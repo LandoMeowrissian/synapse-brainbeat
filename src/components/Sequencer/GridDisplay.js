@@ -1,4 +1,3 @@
-// src/components/Sequencer/GridDisplay.js
 
 const GridDisplay = ({ grid, onNoteClick }) => (
   <div className="sequencer-grid">

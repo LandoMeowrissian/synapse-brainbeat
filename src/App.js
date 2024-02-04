@@ -1,17 +1,16 @@
 import "./App.scss";
-// import Sequencer from "./components/Sequencer/Sequencer";
-import Effects from "./components/Effects/Effects";
-// import Header from "./components/Header/Header";
-function App( ) {
- 
+import HomePage from "./pages/HomePage";
+import PlayerPage from "./pages/PlayerPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+function App() {
   return (
-    <>
-      <Effects/>
-      {/* <Header/>
-      <Sequencer/>  */}
-    </>
-   
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<HomePage />}></Route>
+        <Route path={"/player"} element={<PlayerPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,46 +1,61 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
-$border-style: 1mm ridge silver;
-
+.github-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1rem;
+}
 .sequencer {
-  &-controls {
-    border-top: $border-style;
-    border-bottom: $border-style;
-    border-right: $border-style;
-    border-left: $border-style;
-  }
+  padding: 1rem 1rem 5rem 1rem;
+
   &-synth,
   &-drums {
     display: flex;
-    width: 100vw;
+    justify-content: center;
+    box-shadow: rgb(255, 255, 255) 1px 0 10px;
+
   }
   &-grid,
   &-controls {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
   }
   &-grid {
-    perspective: 800px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 1rem;
-    width: 80vw;
+  }
+
+  &-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  &-controls__slider {
+    width: 50%;
   }
 }
 
-
+#play-button,
+#stop-button {
+  height: 3rem;
+  width: 5rem;
+  margin-left: 1rem;
+  font-family: $font-stack;
+}
 
 #row {
-  width: 80%;
+  width: 42.5rem;
   perspective: 600px;
-  border-bottom-right-radius: 5%;
-  border-bottom-left-radius: 5%;
   border-top: $border-style;
   border-right: $border-style;
   border-left: $border-style;
-  background: linear-gradient(to bottom, #323232, #ffffff, #777575, #ffffff);
+  background: linear-gradient(to bottom, silver, #ffffff);
 }
 
 #step-4,
@@ -75,7 +90,7 @@ $border-style: 1mm ridge silver;
   &.step-0-14.note-is-active,
   &.step-0-15.note-is-active,
   &.step-0-16.note-is-active {
-    background: linear-gradient(to bottom right, #05ffcf, #323232);
+    background: #05ffcf;
     box-shadow: 2px 2px 5px #05ffcf, -2px -2px 5px #05ffcf;
   }
 
@@ -96,7 +111,7 @@ $border-style: 1mm ridge silver;
   &.step-1-14.note-is-active,
   &.step-1-15.note-is-active,
   &.step-1-16.note-is-active {
-    background: linear-gradient(to bottom right, #5dd478, #323232);
+    background: #43e96a;
     box-shadow: 2px 2px 5px #5dd478, -2px -2px 5px #5dd478;
   }
   &.step-2-0.note-is-active,
@@ -116,7 +131,7 @@ $border-style: 1mm ridge silver;
   &.step-2-14.note-is-active,
   &.step-2-15.note-is-active,
   &.step-2-16.note-is-active {
-    background: linear-gradient(to bottom right, #ff57ab, #323232);
+    background: #ff57ab;
     box-shadow: 2px 2px 5px #ff57ab, -2px -2px 5px #ff57ab;
   }
   &.step-3-0.note-is-active,
@@ -136,7 +151,7 @@ $border-style: 1mm ridge silver;
   &.step-3-14.note-is-active,
   &.step-3-15.note-is-active,
   &.step-3-16.note-is-active {
-    background: linear-gradient(to bottom right, #ff00ff, #323232);
+    background: #ff00ff;
     box-shadow: 2px 2px 5px #ff00ff, -2px -2px 5px #ff00ff;
   }
   &.step-4-0.note-is-active,
@@ -156,8 +171,8 @@ $border-style: 1mm ridge silver;
   &.step-4-14.note-is-active,
   &.step-4-15.note-is-active,
   &.step-4-16.note-is-active {
-    background: linear-gradient(to bottom right, #ea4d71, #323232);
-    box-shadow: 2px 2px 5px #ea4d71, -2px -2px 5px #ea4d71;
+    background: #2626f5;
+    box-shadow: 2px 2px 5px #2626f5, -2px -2px 5px #2626f5;
   }
   &.step-5-0.note-is-active,
   &.step-5-1.note-is-active,
@@ -176,11 +191,7 @@ $border-style: 1mm ridge silver;
   &.step-5-14.note-is-active,
   &.step-5-15.note-is-active,
   &.step-5-16.note-is-active {
-    background: linear-gradient(to bottom right, #4daeea, #323232);
-    box-shadow: 2px 2px 5px #4daeea, -2px -2px 5px #4daeea;
+    background: #5808f9;
+    box-shadow: 2px 2px 5px #5808f9, -2px -2px 5px #5808f9;
   }
 }
-
-// button {
-//   @include button-square;
-// }
