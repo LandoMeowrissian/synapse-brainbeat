@@ -80,3 +80,36 @@
 // });
 // const fx2 = new FX({ effect: Tone.Phaser, bypass: false});
 // osc.chain(fx1, fx2, Tone.Destination);
+
+// const SynthRowSelect = ({ onSelectRow }) => {
+//   return (
+//     <div className="row-select">
+//       {notes.map((note, index) => (
+//         <button
+//           className="row-select__button"
+//           id={index + 1}
+//           key={index} onClick={() => onSelectRow(index)}>
+          
+//         </button>
+//       ))}
+//     </div>
+//   );
+// };
+// const DrumRowSelect = ({ onSelectRow }) => {
+//   return (
+//     <div className="row-select">
+//       {notes.map((note, index) => (
+//         <button
+//           className="row-select__button"
+//           id={index + 6}
+//           key={index} onClick={() => onSelectRow(index)}>
+          
+//         </button>
+//       ))}
+//     </div>
+//   );
+// };
+// const handleRowSelection = (rowIndex) => {
+//   console.log("Selected row:", rowIndex);
+//   // Implement row selection logic here...
+// };

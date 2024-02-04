@@ -4,7 +4,6 @@ import Drums from "../Drums/Drums";
 import BPMSlider from "./BPMSlider";
 import GridDisplay from "./GridDisplay";
 import DrumGridDisplay from "./DrumGridDisplay";
-import  "./RowSelect.scss";
 import "./Grid.scss";
 
 const Sequencer = () => {
@@ -17,10 +16,7 @@ const Sequencer = () => {
   const [started, setStarted] = useState(false);
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
-  const reverb = new Tone.JCReverb(0.2).toDestination();
-  const delay = new Tone.PingPongDelay("16n", 0.02).toDestination();
-
-
+ 
   let synthRef = useRef(
 
     new Tone.Synth({
@@ -78,7 +74,7 @@ const Sequencer = () => {
 
     if (started && playing) {
       Tone.Transport.bpm.value = bpm;
-      Tone.Transport.scheduleRepeat(repeat, "16n");
+      Tone.Transport.scheduleRepeat(repeat, "8n");
       Tone.Transport.start();
     } else {
       Tone.Transport.stop();
@@ -159,50 +155,23 @@ const Sequencer = () => {
     setPlaying(false);
   };
 
-  const SynthRowSelect = ({ onSelectRow }) => {
-    return (
-      <div className="row-select">
-        {notes.map((note, index) => (
-          <button
-            className="row-select__button"
-            id={index + 1}
-            key={index} onClick={() => onSelectRow(index)}>
-            
-          </button>
-        ))}
-      </div>
-    );
-  };
-  const DrumRowSelect = ({ onSelectRow }) => {
-    return (
-      <div className="row-select">
-        {notes.map((note, index) => (
-          <button
-            className="row-select__button"
-            id={index + 6}
-            key={index} onClick={() => onSelectRow(index)}>
-            
-          </button>
-        ))}
-      </div>
-    );
-  };
+  
 
-  const handleRowSelection = (rowIndex) => {
-    console.log("Selected row:", rowIndex);
-    // Implement row selection logic here...
-  };
+  
 
   return (
     <div className="sequencer">
       <div className="sequencer-controls">
         <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
+        <div className="sequencer-controls__buttons">
         <button id="play-button" onClick={handlePlayButton}>
           Start
         </button>
         <button id="stop-button" onClick={handleStopButton}>
           Stop
         </button>
+        </div>
+       
       </div>
 
       <div className="sequencer-synth">
@@ -212,7 +181,6 @@ const Sequencer = () => {
             handleNoteClick("synth", rowIndex, noteIndex)
           }
         />
-        <SynthRowSelect onSelectRow={handleRowSelection} />
       </div>
       <div className="sequencer-drums">
         <DrumGridDisplay
@@ -221,9 +189,6 @@ const Sequencer = () => {
             handleNoteClick("drum", rowIndex, noteIndex)
           }
         />
-        <DrumRowSelect onSelectRow={handleRowSelection} />
-
-       
       </div>
     </div>
   );

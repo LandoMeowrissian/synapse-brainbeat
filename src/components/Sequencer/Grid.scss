@@ -1,43 +1,43 @@
 @import "../../styles/mixins";
 
-$border-style: 1mm ridge silver;
+$border-style: 1px ridge silver;
 
 .sequencer {
-  &-controls {
-    border-top: $border-style;
-    border-bottom: $border-style;
-    border-right: $border-style;
-    border-left: $border-style;
-  }
+ 
   &-synth,
   &-drums {
     display: flex;
-    width: 100vw;
   }
   &-grid,
   &-controls {
     display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
   }
   &-grid {
     perspective: 800px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 1rem;
-    width: 80vw;
   }
+
+  &-controls {
+    align-items: center;
+    padding-left: 1rem;
+  }
+ 
+}
+
+#play-button,
+#stop-button{
+  height: 3rem;
+  width: 3rem;
+  margin-left: 1rem;
 }
 
 
-
 #row {
-  width: 45rem;
- 
+  width: 43.5rem;
   perspective: 600px;
-  border-bottom-right-radius: 5%;
-  border-bottom-left-radius: 5%;
   border-top: $border-style;
   border-right: $border-style;
   border-left: $border-style;
@@ -181,7 +181,3 @@ $border-style: 1mm ridge silver;
     box-shadow: 2px 2px 5px #4daeea, -2px -2px 5px #4daeea;
   }
 }
-
-// button {
-//   @include button-square;
-// }
