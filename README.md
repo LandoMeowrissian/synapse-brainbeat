@@ -53,7 +53,7 @@
 </ul>
 
 <h3>login</h3>
-<p>For now this is pure ornamental. Just click the "make noise" button to play</p>
+<p>For now this is purely ornamental. Just click the "make noise" button to play</p>
 <img width="1712" alt="Screenshot 2024-02-04 at 4 52 22 PM" src="https://github.com/LandoMeowrissian/synapse-brainbeat/assets/128652765/65891af0-bb83-473a-97f7-170913e15085">
 
 <h3>roadmap</h3>
