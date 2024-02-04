@@ -42,6 +42,17 @@
 <p>Click the start button to start the loop</p>
 <p>Click the stop to stop the loop</p>
 
+<h3>get started</h3>
+<p>In your terminal run:
+<ul>
+<li> <p>npm i build</p></li>
+<li><p>npm i -g serve</p></li>
+<li><p>serve -s build</p></li>
+<li><p>the link will be copied to your clipboard</p></li>
+<li><p>paste and play!</p></li>
+</ul>
+</p>
+
 <h3>roadmap</h3>
 <p>The sky's the limit! I have all kinds of plans for this. This includes, but is not limited to:
  <ul>
