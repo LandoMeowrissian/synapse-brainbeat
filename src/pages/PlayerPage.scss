@@ -1,0 +1,15 @@
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
+
+.player{
+  @include flex-col;
+  align-items: center;
+
+  &-header{
+    padding: 1rem;
+  }
+}
+
+.github-link{
+  padding: 1rem 0 1rem 0;
+}

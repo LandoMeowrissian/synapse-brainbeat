@@ -1,5 +1,6 @@
+@import "./variables.scss";
+
 @mixin button-square($active: false) {
-  
   color: #ddd;
   background-color:#323232;
   border: none;
@@ -10,6 +11,7 @@
   position: relative;
   transition: all 0.3s ease;
   text-align:center;
+  font-family: $font-stack
 }
 
 @mixin note-gradient($start-color) {
@@ -24,6 +26,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 } 
+@mixin box-gradient{
+  background:#323232; 
+  box-shadow: 3px 3px 5px 0px #05ffcf, 6px 6px 5px 0px #43e96a, 9px 9px 5px 0px #4daeea, 12px 12px 5px 0px #6c6cf6, 15px 15px 5px 0px #7e42f8, 18px 18px 5px 0px #ff57ab, 21px 21px 5px 0px #ff00ff;
+  background: linear-gradient(to bottom right, #05ffcf, #ff00ff);
+} 
 
 @mixin flex-col {
   display: flex;
@@ -32,4 +39,9 @@
 
 @mixin list {
   list-style: none;
+}
+
+@mixin inline-marg{
+  margin-left: 1rem;
+  margin-right:1rem
 }

@@ -17,9 +17,7 @@
 }
 
 h1 {
-  background: linear-gradient(to right, #05ffcf, #43e96a,#4daeea,#6c6cf6,#7e42f8,#ff57ab,#ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+ @include font-gradient;
   margin-bottom: 1rem;
 }
  

@@ -13,25 +13,42 @@
  
   form {
     @include flex-col;
-    margin: 3rem 0 3rem 0;
-    padding-bottom: 3rem;
+    margin: 3rem 0 1rem 0;
+    padding-bottom: 1rem;
     border: $border-style;
     box-shadow: rgb(255, 255, 255) 1px 0 10px;
+    
   }
   &-heading {
     display: flex;
     justify-content: center;
     border: $border-style;
     box-shadow: rgb(255, 255, 255) 1px 0 10px;
+   
   }
   h2,
   label {
-    @include font-gradient;
-   
+    // @include font-gradient;
+    color: white;
     padding: 1rem;
   }
   input {
-    width: 80%;
-    margin-left: 1rem;
+    @include inline-marg
+  }
+
+  &-button {
+    @include inline-marg;
+    width: 88%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: transparent;
+    box-shadow: rgb(255, 255, 255) 1px 0 10px;
+    color: white;
+    font-family: $font-stack;
+    font-size: 1.25rem;
+  }
+
+  &-button:hover{
+    cursor:pointer;
   }
 }

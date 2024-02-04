@@ -1,5 +1,5 @@
 @import "../../styles/mixins";
-@import "../../styles/variable";
+@import "../../styles/variables";
 
 
 .github-link {
@@ -9,10 +9,11 @@
   font-size: 1rem;
 }
 .sequencer {
- 
+ padding: 1rem 1rem 5rem 1rem;
   &-synth,
   &-drums {
     display: flex;
+    justify-content: center;
   }
   &-grid,
   &-controls {
@@ -20,15 +21,21 @@
     border-radius: 5px;
   }
   &-grid {
-    perspective: 800px;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
   }
 
   &-controls {
+    display: flex;
+    justify-content:space-between;
     align-items: center;
     padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &-controls__slider{
+    width: 50%;
   }
  
 }
@@ -36,13 +43,15 @@
 #play-button,
 #stop-button{
   height: 3rem;
-  width: 3rem;
+  width: 5rem;
   margin-left: 1rem;
+  font-family: $font-stack
+
 }
 
 
 #row {
-  width: 43.5rem;
+  width: 42.5rem;
   perspective: 600px;
   border-top: $border-style;
   border-right: $border-style;

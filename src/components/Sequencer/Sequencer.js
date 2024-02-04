@@ -157,7 +157,10 @@ const Sequencer = () => {
   return (
     <div className="sequencer">
       <div className="sequencer-controls">
+        <div className="sequencer-controls__slider" >
         <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
+
+        </div>
         <div className="sequencer-controls__buttons">
           <button id="play-button" onClick={handlePlayButton}>
             Start
@@ -165,14 +168,6 @@ const Sequencer = () => {
           <button id="stop-button" onClick={handleStopButton}>
             Stop
           </button>
-        </div>
-        <div>
-          <a
-            className="github-link"
-            href="https://github.com/LandoMeowrissian/synapse-brainbeat"
-          >
-            github.com/LandoMeowrissian/synapse-brainbeat
-          </a>
         </div>
       </div>
 
