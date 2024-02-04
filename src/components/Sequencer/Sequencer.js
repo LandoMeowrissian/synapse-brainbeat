@@ -16,9 +16,8 @@ const Sequencer = () => {
   const [started, setStarted] = useState(false);
   const [beat, setBeat] = useState(0);
   const beatRef = useRef(beat);
- 
-  let synthRef = useRef(
 
+  let synthRef = useRef(
     new Tone.Synth({
       oscillator: { type: "sawtooth" },
       envelope: { attack: 0.05 },
@@ -155,23 +154,26 @@ const Sequencer = () => {
     setPlaying(false);
   };
 
-  
-
-  
-
   return (
     <div className="sequencer">
       <div className="sequencer-controls">
         <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
         <div className="sequencer-controls__buttons">
-        <button id="play-button" onClick={handlePlayButton}>
-          Start
-        </button>
-        <button id="stop-button" onClick={handleStopButton}>
-          Stop
-        </button>
+          <button id="play-button" onClick={handlePlayButton}>
+            Start
+          </button>
+          <button id="stop-button" onClick={handleStopButton}>
+            Stop
+          </button>
         </div>
-       
+        <div>
+          <a
+            className="github-link"
+            href="https://github.com/LandoMeowrissian/synapse-brainbeat"
+          >
+            github.com/LandoMeowrissian/synapse-brainbeat
+          </a>
+        </div>
       </div>
 
       <div className="sequencer-synth">

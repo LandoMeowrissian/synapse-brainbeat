@@ -1,10 +1,11 @@
 @mixin button-square($active: false) {
-  background-image: url("../assets/images/black-metal-texture.png");
-  background-size: contain;
-  background-position: center;
+  // background-image: url("../assets/images/black-metal-texture.png");
+  // background-size: contain;
+  // background-position: center;
   color: #ddd;
-  border: 1px ridge silver;
-  border-radius: 15%; 
+  background-color:#323232;
+  border: none;
+  // border-radius: 15%; 
   padding: 1rem 1rem;
   cursor: pointer;
   outline: none;
