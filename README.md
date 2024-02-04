@@ -60,11 +60,17 @@
 <p>The sky's the limit! I have all kinds of plans for this. This includes, but is not limited to:
  <ul>
   <li>
-   <p>user profiles</p>
-   <p>saving loops</p>
-  <p>all the normal features one would expect from a synthesizer & drum machine</p> 
-  <p>a visulizer would be cool</p>
+   <p>user profiles</p> 
   </li>
+  <li>
+    <p>saving loops</p>
+  </li>
+  <li>
+    <p>all the normal features one would expect from a synthesizer & drum machine</p> 
+  </li>
+ <li>
+  <p>a visulizer would be cool</p>
+ </li>
  </ul>
 
  <h3>contribute</h3>
