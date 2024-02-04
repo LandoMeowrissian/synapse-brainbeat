@@ -1,19 +1,13 @@
+@import "./styles/variables.scss";
 
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
 }
 
 body {
-  background-image: url("./assets/images/stars.png");
-
-}
-
-.App {
-  height: 100%;
-  border: 1mm ridge silver;
-  border-radius: 5%;
-  
-
+  background: linear-gradient(to bottom right, #323232, #000000, #323232);
+  font-family: $font-stack;
+  height: 100vh;
 }

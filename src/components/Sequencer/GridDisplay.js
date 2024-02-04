@@ -1,4 +1,3 @@
-// src/components/Sequencer/GridDisplay.js
 
 const GridDisplay = ({ grid, onNoteClick }) => (
   <div className="sequencer-grid">
@@ -7,7 +6,7 @@ const GridDisplay = ({ grid, onNoteClick }) => (
         {row.map((note, noteIndex) => (
           <button
             id={`step-${noteIndex + 1}`}
-            className={`note sequencer-step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}
+            className={`note step-${rowIndex}-${noteIndex} ${note.isActive ? 'note-is-active' : ''}`}
             key={`note_${rowIndex}_${noteIndex}`}
             onClick={() => onNoteClick(rowIndex, noteIndex)}
             

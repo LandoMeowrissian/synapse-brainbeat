@@ -9,7 +9,7 @@ const BPMSlider = ({ bpm, onBpmChange }) => (
       value={bpm}
       onChange={(e) => onBpmChange(e.target.value)}
     />
-    <span>{bpm} BPM</span>
+    <span className="bpm-tempo"> {bpm} </span>
   </div>
 );
 
