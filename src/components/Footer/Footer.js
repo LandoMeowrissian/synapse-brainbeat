@@ -1,34 +1,34 @@
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-header" >
-      <h2>links: </h2>
+      <div className="footer-header">
+        <h2>links: </h2>
       </div>
-     
-      <div >
+
+      <div>
         <nav>
-          <ul className="footer-links" >
-            <li className="footer-links__item" >
-            <a
-        className="footer-links__github"
-        href="https://github.com/LandoMeowrissian/synapse-brainbeat"
-      >
-        github
-      </a>
+          <ul className="footer-links">
+            <li className="footer-links__item">
+              <Link
+                to={"https://github.com/LandoMeowrissian/synapse-brainbeat"}
+              >
+                Github
+              </Link>
             </li>
-            <li className="footer-links__item" >
-            <a href="mailto: synapse.brainbeat@gmail.com" type="footer-links__email">email me</a>
+            <li className="footer-links__item">
+              <Link to={"mailto: synapse.brainbeat@gmail.com"}>email</Link>
             </li>
-            <li  className="footer-links__item" >
-            <a type="footer-links__linkedin">linked in </a>
+            <li className="footer-links__item">
+              <Link to={"https://linkedin.com/in/james-ingalls"}>
+              linkedIn
+              </Link>
+         
             </li>
           </ul>
         </nav>
-     
-      
       </div>
-      
     </footer>
   );
 };
