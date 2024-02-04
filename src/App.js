@@ -1,7 +1,7 @@
 import "./App.scss";
 // import Sequencer from "./components/Sequencer/Sequencer";
 // import Header from "./components/Header/Header";
-import HomePage from "./pages/HomePage/";
+import HomePage from "./pages/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

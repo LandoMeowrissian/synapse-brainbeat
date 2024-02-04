@@ -1,20 +1,12 @@
+@import "./styles/variables.scss";
 
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
 }
 
 body {
   background: linear-gradient(to bottom right, #000000, #323232);
-  min-width: 768px;
-  max-width: 1200px;
-}
-
-.App {
-  height: 100%;
-  border: 1mm ridge silver;
-  border-radius: 5%;
-  
-
+  font-family: $font-stack;
 }

@@ -1,0 +1,37 @@
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
+
+.home {
+  @include flex-col;
+  align-items: center;
+  height: 100vh;
+  
+}
+
+.login {
+  padding: 3rem 0 3rem 0;
+ 
+  form {
+    @include flex-col;
+    margin: 3rem 0 3rem 0;
+    padding-bottom: 3rem;
+    border: $border-style;
+    box-shadow: rgb(255, 255, 255) 1px 0 10px;
+  }
+  &-heading {
+    display: flex;
+    justify-content: center;
+    border: $border-style;
+    box-shadow: rgb(255, 255, 255) 1px 0 10px;
+  }
+  h2,
+  label {
+    @include font-gradient;
+   
+    padding: 1rem;
+  }
+  input {
+    width: 80%;
+    margin-left: 1rem;
+  }
+}

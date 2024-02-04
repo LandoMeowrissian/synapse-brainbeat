@@ -1,13 +1,25 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+
 .header__container{
-  display:flex;
-  flex-direction: column;
+  @include flex-col;
 }
 
 .header {
-  margin-top:1rem;
+  align-items: center;
+  display:flex;
   height: 5rem;
-  background-image: url("../../assets/images/brainbeat-logo.png");
-  background-size:cover;
-  background-position:center;
- 
+  margin-top: 5rem;
+  padding: 2.5rem;
+  border: $border-style;
+    box-shadow: rgb(255, 255, 255) 1px 0 10px;
 }
+
+h1 {
+  background: linear-gradient(to right, #05ffcf, #43e96a,#4daeea,#6c6cf6,#7e42f8,#ff57ab,#ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+ 
