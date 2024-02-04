@@ -1,0 +1,28 @@
+@import "../../styles/mixins.scss";
+
+.footer {
+  padding-bottom: 3rem;
+  color: white;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  border: 1px solid silver;
+  width: 100vw;
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+
+  ul {
+    @include inline-marg;
+    display: flex;
+    list-style: none;
+  }
+
+  li {
+    padding-right: 2rem;
+  }
+
+}

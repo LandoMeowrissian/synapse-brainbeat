@@ -1,24 +1,27 @@
 @import "../../styles/mixins";
 @import "../../styles/variables";
 
-
 .github-link {
-  color:#ffffff;
+  color: #ffffff;
   text-decoration: none;
-  font-weight:300;
+  font-weight: 300;
   font-size: 1rem;
 }
 .sequencer {
- padding: 1rem 1rem 5rem 1rem;
+  padding: 1rem 1rem 5rem 1rem;
+
   &-synth,
   &-drums {
     display: flex;
     justify-content: center;
+    box-shadow: rgb(255, 255, 255) 1px 0 10px;
+
   }
   &-grid,
   &-controls {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
-    border-radius: 5px;
   }
   &-grid {
     flex-direction: column;
@@ -28,27 +31,23 @@
 
   &-controls {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     padding-left: 1rem;
-    padding-right: 1rem;
   }
 
-  &-controls__slider{
+  &-controls__slider {
     width: 50%;
   }
- 
 }
 
 #play-button,
-#stop-button{
+#stop-button {
   height: 3rem;
   width: 5rem;
   margin-left: 1rem;
-  font-family: $font-stack
-
+  font-family: $font-stack;
 }
-
 
 #row {
   width: 42.5rem;
@@ -56,7 +55,7 @@
   border-top: $border-style;
   border-right: $border-style;
   border-left: $border-style;
-  background: linear-gradient(to bottom, #ffffff, #ffffff);
+  background: linear-gradient(to bottom, silver, #ffffff);
 }
 
 #step-4,
@@ -91,7 +90,7 @@
   &.step-0-14.note-is-active,
   &.step-0-15.note-is-active,
   &.step-0-16.note-is-active {
-    background:#05ffcf;
+    background: #05ffcf;
     box-shadow: 2px 2px 5px #05ffcf, -2px -2px 5px #05ffcf;
   }
 
