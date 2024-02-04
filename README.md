@@ -15,8 +15,14 @@
 <ul>
  <li>
   <p>kick/toms - The kick drum and toms use the Tone.MembraneSynth() with sinewave oscillators and employ a variety of octaves to achieve distict tonality</p>
+  <li>
   <p>hit-hats - The hi-hats use the Tone.MetalSynth()</p>
+   
+  </li>
+  <li>
   <p>snare - My personal fav. The snare drum is a combination of the Tone.MembraneSynth(), Tone.NoiseSynth(), and Tone.Filter(). </p>
+   
+  </li>
  </li>
 </ul>
 
