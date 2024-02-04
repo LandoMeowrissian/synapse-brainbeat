@@ -57,5 +57,4 @@
  <p> I need all kinds of extra hands on this project. </p>
 
 <h3>star power</h3>
-<p>You made it this far, you might as well star this repo! </p>
-
+<p>You made it this far, you might as well star and watch this repo! </p>
