@@ -8,10 +8,12 @@
 <h3>synapse</h3>
 <p> synapse is the top grid and synthesizer component </p>
 <p> The synthesizer is a basic synthesizer with a sawtooth oscillator made using Tone.Synth() </p>
+<p> The synthesziser grid uses the F#minor pentatonic scale. If you don't know what that means, don't worry about it. There are no "wrong" notes.</p>
 
 <h3>brainbeat</h3>
 <p> brainbeat is the bottom grid drum machine component </p>
 <p> Slightly more complex than its counterpart, the drum sounds were made using a variety of synths available in the Tone.js library</p>
+
 <ul>
  <li>
   <p>kick/toms - The kick drum and toms use the Tone.MembraneSynth() with sinewave oscillators and employ a variety of octaves to achieve distict tonality</p>
@@ -39,4 +41,21 @@
 <p>Use the slider to adjust the tempo</p>
 <p>Click the start button to start the loop</p>
 <p>Click the stop to stop the loop</p>
+
+<h3>roadmap</h3>
+<p>The sky's the limit! I have all kinds of plans for this. This includes, but is not limited to:
+ <ul>
+  <li>
+   <p>user profiles</p>
+   <p>saving loops</p>
+  <p>all the normal features one would expect from a synthesizer & drum machine</p> 
+  <p>a visulizer would be cool</p>
+  </li>
+ </ul>
+
+ <h3>contribute</h3>
+ <p> I need all kinds of extra hands on this project. </p>
+
+<h3>star power</h3>
+<p>You made it this far, you might as well star this repo! </p>
 
