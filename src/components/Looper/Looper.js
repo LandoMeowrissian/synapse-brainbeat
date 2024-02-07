@@ -2,38 +2,38 @@ import * as Tone from "tone";
 import { useState } from "react";
 
 const Looper = () => {
-  const [isToneStarted, setIsToneStarted] = useState(false);
-  const bassSynth = new Tone.MembraneSynth().toDestination();
+  const [started, setStarted] = useState(false);
+  const bassSynth = new Tone.MembraneSynth({
+    pitchDecay: 0.05
+  }).toDestination();
 
-  const song = (time) => {
-    bassSynth.triggerAttackRelease('C1', '8n', time)
-    Tone.now();
-    console.log(time)
-  }
-  const loopBeat = new Tone.Loop(song, "4n");
-  Tone.Transport.start();
-  loopBeat.start(0);
+  const loop = (time) => {
+    bassSynth.triggerAttackRelease("A0", "8n", time);
+  };
+
+  const interval = "16n";
+  const steps = new Tone.Loop(loop, interval); // 16n === notes per measure
 
   const startAudio = async () => {
-    await Tone.start();
-    setIsToneStarted(true);
-    console.log('is running')
+    await Tone.Transport.start();
+    steps.start(0);
+    setStarted(true);
+    console.log(steps);
   };
 
   const stopAudio = () => {
     Tone.Transport.stop();
-    loopBeat.stop();
-   
-    console.log('stopped running')
-  }
- 
+    Tone.Transport.cancel();
+    setStarted(false);
+    console.log("stopped running");
+  };
+
   return (
     <div>
-      <button onClick={startAudio} >Start Audio</button>
-    <button onClick={stopAudio} >Stop Audio</button>
+      <button onClick={startAudio}>Start Audio</button>
+      <button onClick={stopAudio}>Stop Audio</button>
     </div>
-    
-  )
-}
+  );
+};
 
 export default Looper;
