@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import * as Tone from "tone";
 import Drums from "../Drums/Drums";
-import BPMSlider from "./BPMSlider";
+import BPMSlider from "../BPMSlider/BPMSlider";
 import GridDisplay from "./GridDisplay";
 import DrumGridDisplay from "./DrumGridDisplay";
 import "./Grid.scss";

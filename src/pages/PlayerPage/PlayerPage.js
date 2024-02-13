@@ -1,6 +1,6 @@
-import Header from "../components/Header/Header"
-import Footer from "../components/Footer/Footer"
-import Sequencer from "../components/Sequencer/Sequencer"
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
+import Sequencer from "../../components/Sequencer/Sequencer"
 import "./PlayerPage.scss";
 
 const PlayerPage = () => {

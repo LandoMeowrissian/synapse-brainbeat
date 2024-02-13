@@ -1,5 +1,5 @@
-import Header from "../components/Header/Header";
-import Login from "../components/Login/Login";
+import Header from "../../components/Header/Header";
+import Login from "../../components/Login/Login";
 import "./HomePage.scss";
 
 const HomePage = () => {
