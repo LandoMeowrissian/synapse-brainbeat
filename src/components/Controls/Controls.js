@@ -1,21 +1,14 @@
 import React from "react";
+import Buttons from "../Buttons/Buttons";
+import BpmSlider from "../BpmSlider/BpmSlider";
 
-const Controls = ({
-  handleBpmChange,
-  handlePlayButton,
-  handleStopButton
-}) => {
- 
-
- 
-
-  
-
+const Controls = ({ handleBpmChange, bpm }) => {
   return (
     <>
-      <BPMSlider bpm={bpm} onBpmChange={handleBpmChange} />
+      <BpmSlider bpm={bpm} onBpmChange={handleBpmChange} />
+      <Buttons/>
     </>
-  )
+  );
 };
 
 export default Controls;

@@ -15,7 +15,6 @@
     display: flex;
     justify-content: center;
     box-shadow: rgb(255, 255, 255) 1px 0 10px;
-
   }
   &-grid,
   &-controls {
@@ -39,14 +38,6 @@
   &-controls__slider {
     width: 50%;
   }
-}
-
-#play-button,
-#stop-button {
-  height: 3rem;
-  width: 5rem;
-  margin-left: 1rem;
-  font-family: $font-stack;
 }
 
 #row {

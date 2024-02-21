@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState,  useRef } from "react";
 import * as Tone from "tone";
 import Drums from "../Drums/Drums";
 import GridDisplay from "./GridDisplay";

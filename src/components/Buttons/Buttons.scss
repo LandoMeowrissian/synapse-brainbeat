@@ -1,0 +1,11 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+
+#play-button,
+#stop-button {
+  height: 3rem;
+  width: 5rem;
+  margin-left: 1rem;
+  font-family: $font-stack;
+}

@@ -1,5 +1,8 @@
-import "./BPMSlider.scss";
-const BPMSlider = () => {
+import React, { useState } from "react";
+import * as Tone from "tone";
+import "./BpmSlider.scss";
+
+const BpmSlider = () => {
   const [bpm, setBpm] = useState(120);
 
   const handleBpmChange = (newBpm) => {
@@ -15,11 +18,11 @@ const BPMSlider = () => {
         min="60"
         max="240"
         value={bpm}
-        onChange={(e) => onBpmChange(e.target.value)}
+        onChange={(e) => handleBpmChange(e.target.value)}
       />
       <span className="bpm-tempo"> {bpm} </span>
     </div>
   );
 };
 
-export default BPMSlider;
+export default BpmSlider;

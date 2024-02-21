@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import * as Tone from "tone";
+import "./Buttons.scss";
 
 const Buttons = () => {
   const [playing, setPlaying] = useState(false);
@@ -26,44 +28,44 @@ const Buttons = () => {
     setPlaying(false);
   };
 
-  useEffect(() => {
-    const repeat = (time) => {
-      const currentBeat = beatRef.current;
-      grid.forEach((row, index) => {
-        let synth = synthRef.current;
-        let note = row[currentBeat];
-        if (note.isActive) {
-          synth.triggerAttackRelease(note.note, "16n", time);
-        }
-      });
-      drumGrid.forEach((row, index) => {
-        let drum = drumRefs[drums[index]].current;
-        let note = row[currentBeat];
-        if (note.isActive) {
-          drum.triggerAttackRelease("C2", "16n", time);
-        }
-      });
+  // useEffect(() => {
+  //   const repeat = (time) => {
+  //     const currentBeat = beatRef.current;
+  //     grid.forEach((row, index) => {
+  //       let synth = synthRef.current;
+  //       let note = row[currentBeat];
+  //       if (note.isActive) {
+  //         synth.triggerAttackRelease(note.note, "16n", time);
+  //       }
+  //     });
+  //     drumGrid.forEach((row, index) => {
+  //       let drum = drumRefs[drums[index]].current;
+  //       let note = row[currentBeat];
+  //       if (note.isActive) {
+  //         drum.triggerAttackRelease("C2", "16n", time);
+  //       }
+  //     });
 
-      setBeat((prevBeat) => (prevBeat + 1) % 16);
-    };
+  //     setBeat((prevBeat) => (prevBeat + 1) % 16);
+  //   };
 
-    Tone.Transport.cancel();
-    Tone.Transport.stop();
+  //   Tone.Transport.cancel();
+  //   Tone.Transport.stop();
 
-    if (started && playing) {
-      Tone.Transport.bpm.value = bpm;
-      Tone.Transport.scheduleRepeat(repeat, "8n");
-      Tone.Transport.start();
-    } else {
-      Tone.Transport.stop();
-    }
-    return () => {
-      Tone.Transport.cancel();
-      Tone.Transport.stop();
-    };
-  }, [started, bpm]);
+  //   if (started && playing) {
+  //     Tone.Transport.bpm.value = bpm;
+  //     Tone.Transport.scheduleRepeat(repeat, "8n");
+  //     Tone.Transport.start();
+  //   } else {
+  //     Tone.Transport.stop();
+  //   }
+  //   return () => {
+  //     Tone.Transport.cancel();
+  //     Tone.Transport.stop();
+  //   };
+  // }, [started, bpm]);
 
-  const StartButton = ({}) => {
+ const StartButton = ({}) => {
     <div className="sequencer-controls__buttons">
       <button id="play-button" onClick={handlePlayButton}>
         Start
@@ -78,7 +80,12 @@ const Buttons = () => {
       </button>
     </div>;
   };
-  return <div></div>;
+  return (
+    <div>
+      <StartButton />
+      <StopButton/>
+    </div>
+  ) 
 };
 
 export default Buttons;
